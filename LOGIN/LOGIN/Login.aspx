@@ -63,6 +63,7 @@
             </tr>
 
             <tr>
+                <!-- Ho aggiunto la class "messaggio" al td per centrare il testo -->
                 <td colspan="2" class="messaggio">
                     <asp:Label ID="lblMessaggio" CssClass="messaggio" runat="server" Text=""></asp:Label>
                 </td>
