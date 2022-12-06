@@ -49,7 +49,5 @@ public partial class Login : System.Web.UI.Page
             lblMessaggio.Text = "Non ti conosco";
         }
 
-        // se dati corretti vado a default.aspx
-
     }
 }
