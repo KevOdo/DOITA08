@@ -10,6 +10,9 @@ body {
     width: inherit;
     text-align: center;
 }
+.centra {
+    text-align: center;
+}
 #tabella {
     margin-top: 20vh;
     background-color: darkgray;
