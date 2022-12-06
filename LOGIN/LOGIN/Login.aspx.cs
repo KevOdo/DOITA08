@@ -32,6 +32,7 @@ public partial class Login : System.Web.UI.Page
             lblMessaggio.Text = "MA SEI PROPRIO PIRLA";
             return;
         }
+        // questo l'ho aggiunto io per rimuovere il messaggio se l'utente riempie entrambi i campi
         else
         {
             lblMessaggio.Text = "";
