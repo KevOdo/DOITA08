@@ -14,7 +14,9 @@ public partial class Login : System.Web.UI.Page
 
     protected void btnAccedi_Click(object sender, EventArgs e)
     {
+        //assegna il valore/risultato di txtUtente.Text alla  variabile strUtente
         string strUtente = txtUtente.Text;
+        //assegna il valore/risultato di txtPassword.Text alla  variabile strPassword
         string strPassword = txtPassword.Text;
 
         //--------------controlli formali--------------//
@@ -25,7 +27,7 @@ public partial class Login : System.Web.UI.Page
             lblMessaggio.Text = "SOMARO";
             return;
         }
-        else if (strPassword.Trim() == "")
+        if (strPassword.Trim() == "")
         {
             lblMessaggio.Text = "MA SEI PROPRIO PIRLA";
             return;
