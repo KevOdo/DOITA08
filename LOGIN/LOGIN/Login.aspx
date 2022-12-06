@@ -16,7 +16,7 @@
             <!-- Campo Utente -->
             <tr>
                 <td>
-                    <asp:Label ID="lblUtente" runat="server" Text="Utente:"></asp:Label>
+                    <asp:Label ID="lblUtente" runat="server" Text="UTENTEEEE:"></asp:Label>
 
                 </td>
                 <td>
@@ -64,7 +64,7 @@
 
             <tr>
                 <!-- Ho aggiunto la class "messaggio" al td per centrare il testo -->
-                <td colspan="2" class="messaggio">
+                <td colspan="2" class="OraCreiamoUnConflitto">
                     <asp:Label ID="lblMessaggio" CssClass="messaggio" runat="server" Text=""></asp:Label>
                 </td>
             </tr>
