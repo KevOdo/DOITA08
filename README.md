@@ -1,6 +1,7 @@
 # DOITA08
 Public repo for DOITA08 course files
 
+## OPTIONAL
 ## Commandi da eseguire nel Command Line Interface (CLI)
 ### Commandi per scaricare la repository nel pc
 
