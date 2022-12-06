@@ -6,11 +6,12 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>GIGGI</title>
+    <link href="css/stile.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
 
-        <table>
+        <table id="tabella">
 
             <!-- Campo Utente -->
             <tr>
@@ -31,7 +32,7 @@
 
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
 
                 </td>
             </tr>
@@ -50,6 +51,7 @@
                     <a href="RecuperaPassword.aspx">Hai perso la password?</a>
                 </td>
                 <td></td>
+                <!-- Cella Vuota -->
             </tr>
 
             <tr>
@@ -57,14 +59,13 @@
                     <a href="Registrazione.aspx">Registrati</a>
                 </td>
                 <td></td>
+                <!-- Cella Vuota -->
             </tr>
 
             <tr>
-                <td>
-                    <asp:Label ID="lblMessaggio" runat="server" Text=""></asp:Label>
+                <td colspan="2" class="messaggio">
+                    <asp:Label ID="lblMessaggio" CssClass="messaggio" runat="server" Text=""></asp:Label>
                 </td>
-                <td></td>
-                <!-- Cella Vuota -->
             </tr>
 
         </table>

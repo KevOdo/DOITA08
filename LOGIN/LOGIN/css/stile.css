@@ -1,0 +1,16 @@
+﻿* {
+    margin: 0 auto;
+}
+body {
+    background-color: lightgray;
+}
+.messaggio {
+    font-weight: bold;
+    color: red;
+    width: inherit;
+    text-align: center;
+}
+#tabella {
+    margin-top: 20vh;
+    background-color: darkgray;
+}
