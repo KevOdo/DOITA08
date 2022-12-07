@@ -84,12 +84,14 @@
                 </td>
             </tr>
 
+            <!-- Bottone Registrati -->
             <tr>
                 <td colspan="4" class="centra">
                     <asp:Button ID="btnRegistrati" runat="server" Text="Registrati" OnClick="btnRegistrati_Click" />
                 </td>
             </tr>
 
+            <!-- Messaggio di errore -->
             <tr>
                 <td colspan="4" class="centra">
                     <asp:Label ID="lblError" CssClass="messaggio" runat="server" Text=""></asp:Label>
