@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Calcolatrice", ".", "{EDBFAB46-CFFF-4D7F-A937-963ED25C5C88}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_64601"
+		Debug.AspNetCompiler.PhysicalPath = "..\Calcolatrice\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64601\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_64601"
+		Release.AspNetCompiler.PhysicalPath = "..\Calcolatrice\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64601\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "64601"
+		SlnRelativePath = "..\Calcolatrice\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDBFAB46-CFFF-4D7F-A937-963ED25C5C88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDBFAB46-CFFF-4D7F-A937-963ED25C5C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5185424A-CE35-48C5-9879-E6017DAE8575}
+	EndGlobalSection
+EndGlobal
