@@ -7,7 +7,7 @@ body {
 .messaggio {
     font-weight: bold;
     color: red;
-    width: inherit;
+    width: 100%;
     text-align: center;
 }
 .centra {
