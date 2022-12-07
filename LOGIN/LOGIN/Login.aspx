@@ -37,6 +37,7 @@
                 </td>
             </tr>
 
+            <!-- Bottone per confermare il login -->
             <tr>
                 <td></td>
                 <!-- Cella Vuota -->
@@ -46,6 +47,7 @@
                 </td>
             </tr>
 
+            <!-- Link per recuperare la password -->
             <tr>
                 <td>
                     <a href="RecuperaPassword.aspx">Hai perso la password?</a>
@@ -54,6 +56,7 @@
                 <!-- Cella Vuota -->
             </tr>
 
+            <!-- Link per andare alla registrazione -->
             <tr>
                 <td>
                     <a href="Registrazione.aspx">Registrati</a>
