@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 public partial class _Default : System.Web.UI.Page
 {
     // impposta variabili iniziali
+    // da int ho cambiato a int? per impostarli come null
     static int? n1;
     static int? n2;
     static string op;
@@ -19,6 +20,7 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
+    // To smanett or not to smanett? Aggiunto una funzione di controllo per vedere se un numero e' null prima di provare a modificarlo
     public int? checkNull(int? num)
     {
         if (num == null)
@@ -268,8 +270,18 @@ public partial class _Default : System.Web.UI.Page
         // se c'e' l'operatore ed il secondo numero, esegui il calcolo DIVISIONE
         else if (op == "/" && n2 != null)
         {
-            txtDisplay.Text = (n1 / n2).ToString();
+            // se provi a dividere per 0 ti da un errore
+            if (n2 == 0)
+            {
+                txtDisplay.Text = "SEI UN PIRLA";
+            }
+            else
+            {
+                txtDisplay.Text = (n1 / n2).ToString();
+            }
+
         }
+        // se premi uguale e hai impostato un solo numero senza operatore te lo stampa sul display
         else if (String.IsNullOrEmpty(op) && n1 != null && n2 == null)
         {
             txtDisplay.Text = n1.ToString();
