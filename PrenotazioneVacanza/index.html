@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>
+            DOITA08
+        </title>
+        <!-- Ho aggiunto css per renderlo un po' piu' carino -->
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <!-- Usando form, tutti i dati contenuti all'interno vengono inviati al link dentro action="" -->
+        <!-- Aggiungendo 'method="post"' si possono nascondere i dati inviati-->
+        <form action="" method="post" id="table">
+            <table>
+
+                <!-- Titolo del modulo di prenotazione -->
+                <tr>
+                    <td colspan="2" class="centra">
+                        <h1>Prenotazione Di Viaggio</h1>
+                    </td>
+                </tr>
+
+                <!-- Campi per Nome e Cognome, di tipo "text" -->
+                <tr>
+                    <td>Nome: <input type="text" name="nome"/></td>
+                    <td>Cognome: <input type="text" name="cognome"/></td>
+                </tr>
+
+                <!-- Campi per email e numero di persone -->
+                <!-- Usando 'type="email"' l'utente deve per forza inserire un email valida -->
+                <!-- Usando 'type="number"' l'utente deve per forza inserire un numero valido -->
+                <tr>
+                    <td>Email: <input type="email" name="email"/></td>
+                    <td>Numero di persone: <input type="number" name="persone"/></td>
+                </tr>
+
+                <!-- Campi per la data di inizio e la data di fine vacanza -->
+                <!-- Usando 'type="date"' l'utente puo' selezionare la data usando un calendario. -->
+                <tr>
+                    <td>Data Inizio: <input type="date" name="dataInizio"/></td>
+                    <td>Data Fine:<input type="date" name="dataFine"/></td>
+                </tr>
+
+                <!-- Campi per la Destinazione e Sistemazione -->
+                <!-- Entrambi usano il tag select. All'interno di esso serve un tag per ogni opzione, nel formatto: <option> Opzione </option> -->
+                <!-- IMPORTANTE: ricordate sempre di assegnare il valore di un opzione usando 'value="valore"' -->
+                <tr>
+                    <td>
+                        Destinazione
+                        <select name="destinazione">
+                            <option value="mare">Mare</option>
+                            <option value="montagna">Montagna</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </td>
+
+                    <td>
+                        Sistemazione
+                        <select name="sistemazione">
+                            <option value="affittacamere">Affittacamere</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="bb">B&B</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <!-- Bottone per inviare il modulo. Mettendo 'type="submit' il bottone viene usato per inviate i dati contenuti nel form -->
+                <tr>
+                    <td colspan="2" class="centra">
+                        <input type="submit" value="Invia">
+                    </td>
+                </tr>
+
+                <!-- Ho aggiunto una foto per dimostrare come importarla -->
+                <!-- Caricare la foto usando '<img src="{location della foto} />"' -->
+                <tr>
+                    <td colspan="2">
+                        <img src="assets/img/dog.jpg" width="100%"/>
+                    </td>
+                </tr>
+
+            </table>
+            
+        </form>
+
+    </body>
+</html>

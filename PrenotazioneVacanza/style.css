@@ -1,0 +1,14 @@
+* {
+    margin: 0 auto;
+}
+body {
+    background-color: grey;
+}
+.centra {
+    text-align: center;
+}
+#table {
+    margin-top: 10%;
+    background-color: lightgray;
+    width: 50vw;
+}
