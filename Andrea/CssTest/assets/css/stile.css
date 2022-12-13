@@ -1,0 +1,28 @@
+h1, h3 {
+    color: #2a90cb;
+}
+body {
+    background: #e98fe0;
+    cursor: crosshair;
+}
+div {
+    background: #ffffff;
+    width: 500px;
+    height: 300px;
+}
+.testo {
+    width: 100%;
+}
+.contenitore {
+    background: #898383;
+    width: 33%;
+    height: 300px;
+    float: left;
+}
+.divBlu {
+    background: #0000ff;
+    color: #ffffff;
+}
+.divVerde {
+    background: #adff2f
+}
