@@ -7,16 +7,28 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <style type="text/css">
             .rosso {
+                height: 250px;
                 background: red;
             }
             .arancione {
+                height: 250px;
                 background: orange;
             }
             .giallo {
+                height: 250px;
                 background: yellow;
             }
             .blu {
+                height: 250px;
+                height: 250px;
                 background: blue;
+            }
+            .verde {
+                height: 250px;
+                background: green;
+            }
+            .divGrande {
+                height: 500px;
             }
         </style>
     </head>
@@ -26,35 +38,53 @@
             <br></br>
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 giallo divGrande">
                     div meta' schermo
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 verde divGrande">
+                    <img class="img-fluid" src="assets/images/ondra.jpg">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 rosso">
+                    div meta' schermo
+                </div>
+
+                <div class="col-lg-4">
+                    div meta' schermo
+                </div>
+
+                <div class="col-lg-4 verde">
                     div meta' schermo
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-4">
-                    div meta' schermo
-                </div>
-
-                <div class="col-lg-4">
-                    div meta' schermo
-                </div>
-
-                <div class="col-lg-4">
-                    div meta' schermo
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-8 arancione">
+                <div class="col-md-7 col-lg-8 arancione">
                     Big column
                 </div>
-                <div class="col-lg-4 blu">
+                <div class="col-md-5 col-lg-4 blu">
                     Medium column
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-3 rosso">
+                    Div colonna 1
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    Div colonna 2
+                </div>
+
+                <div class="col-md-6 col-lg-3 verde">
+                    Div colonna 3
+                </div>
+
+                <div class="col-md-6 col-lg-3 giallo">
+                    Div colonna 4
                 </div>
             </div>
 
