@@ -1,93 +1,129 @@
 <html>
-    <head>
-        <title>
-            Bootstrap get started
-        </title>
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <style type="text/css">
-            .rosso {
-                height: 250px;
-                background: red;
-            }
-            .arancione {
-                height: 250px;
-                background: orange;
-            }
-            .giallo {
-                height: 250px;
-                background: yellow;
-            }
-            .blu {
-                height: 250px;
-                height: 250px;
-                background: blue;
-            }
-            .verde {
-                height: 250px;
-                background: green;
-            }
-            .divGrande {
-                height: 500px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            Lorem Ipsum
-            <br></br>
 
-            <div class="row">
-                <div class="col-md-6 giallo divGrande">
-                    div meta' schermo
-                </div>
+<head>
+    <title>
+        Bootstrap get started
+    </title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style type="text/css">
+        .rosso {
+            height: 250px;
+            background: red;
+        }
 
-                <div class="col-md-6 verde divGrande">
-                    <img class="img-fluid" src="assets/images/ondra.jpg">
-                </div>
+        .arancione {
+            height: 250px;
+            background: orange;
+        }
+
+        .giallo {
+            height: 250px;
+            background: yellow;
+        }
+
+        .blu {
+            height: 250px;
+            height: 250px;
+            background: blue;
+        }
+
+        .verde {
+            height: 250px;
+            background: green;
+        }
+
+        .divGrande {
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        Lorem Ipsum
+        <br></br>
+
+        <div class="row">
+            <div class="col-md-6 giallo divGrande">
+                div meta' schermo
             </div>
 
-            <div class="row">
-                <div class="col-lg-4 rosso">
-                    div meta' schermo
-                </div>
-
-                <div class="col-lg-4">
-                    div meta' schermo
-                </div>
-
-                <div class="col-lg-4 verde">
-                    div meta' schermo
-                </div>
+            <div class="col-md-6 verde divGrande">
+                <img class="img-fluid" src="assets/images/ondra.jpg">
             </div>
-
-            <div class="row">
-                <div class="col-md-7 col-lg-8 arancione">
-                    Big column
-                </div>
-                <div class="col-md-5 col-lg-4 blu">
-                    Medium column
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 col-lg-3 rosso">
-                    Div colonna 1
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    Div colonna 2
-                </div>
-
-                <div class="col-md-6 col-lg-3 verde">
-                    Div colonna 3
-                </div>
-
-                <div class="col-md-6 col-lg-3 giallo">
-                    Div colonna 4
-                </div>
-            </div>
-
         </div>
-    </body>
+
+        <div class="row">
+            <div class="col-lg-4 rosso">
+                div meta' schermo
+            </div>
+
+            <div class="col-lg-4">
+                div meta' schermo
+            </div>
+
+            <div class="col-lg-4 verde">
+                div meta' schermo
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7 col-lg-8 arancione">
+                Big column
+            </div>
+            <div class="col-md-5 col-lg-4 blu">
+                Medium column
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-3 bg-primary">
+                Div colonna 1
+            </div>
+
+            <div class="col-md-6 col-lg-3 bg-secondary">
+                Div colonna 2
+            </div>
+
+            <div class="col-md-6 col-lg-3 bg-info">
+                Div colonna 3
+            </div>
+
+            <div class="col-md-6 col-lg-3 bg-success">
+                Div colonna 4
+            </div>
+        </div>
+
+        <h6 class="text-primary">Text primary</h6>
+        <h6 class="text-secondary">Text secondary</h6>
+        <h6 class="text-success">Text success</h6>
+        <h6 class="text-warning">Text warning</h6>
+        <h6 class="text-info">Text info</h6>
+        <h6 class="text-dark">Text dark</h6>
+        <h6 class="text-muted">Text muted</h6>
+        <h6 class="text-danger">Text danger</h6>
+
+        <div class="alert alert-success">
+            <strong>Success!</strong>
+        </div>
+
+        <div class="alert alert-danger text-center">
+            <strong>Danger!</strong>
+        </div>
+
+        <div class="d-grid">
+            <button type="button" class="btn btn-primary btn-block">Button</button>
+            <button type="button" class="btn btn-outline-primary btn-block">Button 2</button>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                Card Body
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
