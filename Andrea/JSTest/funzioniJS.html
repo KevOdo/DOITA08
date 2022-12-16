@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <script src="assets/js/funzioni.js"></script>
     <script>
         // tutto cio' che codice Javascript va inserito in un tag <script>
         alert("sono un alert");
@@ -20,7 +21,7 @@
         var moltiplicazione = a * b;
         alert(somma);
 
-        function print(num) {
+        function stampa(num) {
             if (num > 10) {
                 document.write("<p>" + num + "</p>");
             } else if (num > 5) {
@@ -30,12 +31,15 @@
             }
         }
 
-        function printProduct(num1, num2) {
+        function stampaProdotto(num1, num2) {
             document.write("<br>Funzione stampa prodotto");
             document.write(num1 * num2)
+            document.write("<br>")
         }
 
-        print(moltiplicazione)
+        stmapa(moltiplicazione);
+        stampaProdotto(a,b);
+        stampaCubo(3);
     </script>
 </body>
 
