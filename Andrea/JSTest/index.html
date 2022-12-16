@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>
+        JavaScript
+    </title>
+</head>
+
+<body>
+    <script>
+        // tutto cio' che codice Javascript va inserito in un tag <script>
+        document.write("Hello World!")
+
+        var num1 = 3;
+        var num2 = 5;
+        var somma = num1 + num2;
+
+
+
+        if (somma > 10) {
+            document.write("<p>" + somma + "</p>");
+        } else if (somma > 5) {
+            document.write("<br>Condizione else if")
+        } else {
+            document.write("<br>Number < 10");
+        }
+
+        var anni = 12
+        if (anni >= 12 && anni <= 18) {
+            document.write("<br>In range - AND")
+        }
+
+        if (anni < 12 || anni > 18) {
+            document.write("<br>In range - OR")
+        }
+    </script>
+</body>
+
+</html>

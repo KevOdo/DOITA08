@@ -12,3 +12,10 @@ body {
     padding: 10px;
     margin-bottom: 10px;
 }
+.blu {
+    color: yellow;
+}
+.myNav {
+    width: 100%;
+    justify-content: center;
+}
