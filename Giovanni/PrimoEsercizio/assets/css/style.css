@@ -1,0 +1,20 @@
+﻿* {
+    margin: 0 auto;
+}
+body {
+    background: #353535;
+}
+
+.padded {
+    padding: 5px;
+    margin-top: 20px;
+}
+
+.myBlue {
+    background: #2c98e0;
+}
+
+.mainCon {
+    max-width: 500px;
+    width: 500px;
+}

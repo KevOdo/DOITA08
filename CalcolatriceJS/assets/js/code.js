@@ -3,6 +3,7 @@ var num2 = "";
 var operator;
 var result = document.getElementById("result");
 
+// concatena cifra al numero corrente + stampa sul display
 function pressNumber(num) {
     if (operator) {
         num2 = num2 + num;
@@ -13,6 +14,7 @@ function pressNumber(num) {
     }
 }
 
+// salva valore dell'operatore selezionato
 function pressOperator(op){
     if (!operator && num1 != "") {
         operator = op;
@@ -20,6 +22,7 @@ function pressOperator(op){
     }
 }
 
+// esegui calcoli in base a operatore salvato. Divisione per 0 disabilitata
 function pressEquals() {
     if (num2 != "") {
         if (operator == "+") {
@@ -41,6 +44,7 @@ function pressEquals() {
     }
 }
 
+// clear memory + display
 function pressClear() {
     num1 = "";
     num2 = "";

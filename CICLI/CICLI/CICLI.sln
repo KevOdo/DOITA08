@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CICLI", ".", "{A9D004D4-F4F7-46C0-8D16-76C573AF0C35}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63698"
+		Debug.AspNetCompiler.PhysicalPath = "..\CICLI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63698\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63698"
+		Release.AspNetCompiler.PhysicalPath = "..\CICLI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63698\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63698"
+		SlnRelativePath = "..\CICLI\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9D004D4-F4F7-46C0-8D16-76C573AF0C35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D004D4-F4F7-46C0-8D16-76C573AF0C35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B510FD4-F8C0-4B5B-9904-9DA57B659567}
+	EndGlobalSection
+EndGlobal
