@@ -22,172 +22,43 @@ public partial class _Default : System.Web.UI.Page
         ltlTurno.Text = "Tocca a " + segno;
     }
 
-    protected void btn1_Click(object sender, EventArgs e)
-    {
-        if (String.IsNullOrEmpty(riga1[0]) && !vinto)
-        {
-            riga1[0] = segno;
-            btn1.Text = segno;
-            cnt++;
-            if (segno == "X")
-            {
-                segno = "0";
-            }
-            else
-            {
-                segno = "X";
-            }
-            ltlTurno.Text = "Tocca a " + segno;
-            controllaVittoria();
-        }
-    }
 
-    protected void btn2_Click(object sender, EventArgs e)
+    protected void btn_Click(object sender, EventArgs e)
     {
-        if (String.IsNullOrEmpty(riga1[1]) && !vinto)
+        Button btn = (Button)sender;
+        if (btn.Text == "" && vinto == false)
         {
-            riga1[1] = segno;
-            btn2.Text = segno;
-            cnt++;
-            if (segno == "X")
+            switch (btn.ID)
             {
-                segno = "0";
+                case "btn1":
+                    riga1[0] = segno;
+                    break;
+                case "btn2":
+                    riga1[1] = segno;
+                    break;
+                case "btn3":
+                    riga1[2] = segno;
+                    break;
+                case "btn4":
+                    riga2[0] = segno;
+                    break;
+                case "btn5":
+                    riga2[1] = segno;
+                    break;
+                case "btn6":
+                    riga2[2] = segno;
+                    break;
+                case "btn7":
+                    riga3[0] = segno;
+                    break;
+                case "btn8":
+                    riga3[1] = segno;
+                    break;
+                case "btn9":
+                    riga3[2] = segno;
+                    break;
             }
-            else
-            {
-                segno = "X";
-            }
-            ltlTurno.Text = "Tocca a " + segno;
-            controllaVittoria();
-        }
-    }
-
-    protected void btn3_Click(object sender, EventArgs e)
-    {
-        if (String.IsNullOrEmpty(riga1[2]) && !vinto)
-        {
-            riga1[2] = segno;
-            btn3.Text = segno;
-            cnt++;
-            if (segno == "X")
-            {
-                segno = "0";
-            }
-            else
-            {
-                segno = "X";
-            }
-            ltlTurno.Text = "Tocca a " + segno;
-            controllaVittoria();
-        }
-    }
-
-    protected void btn4_Click(object sender, EventArgs e)
-    {
-        if (String.IsNullOrEmpty(riga2[0]) && !vinto)
-        {
-            riga2[0] = segno;
-            btn4.Text = segno;
-            cnt++;
-            if (segno == "X")
-            {
-                segno = "0";
-            }
-            else
-            {
-                segno = "X";
-            }
-            ltlTurno.Text = "Tocca a " + segno;
-            controllaVittoria();
-        }
-    }
-
-    protected void btn5_Click(object sender, EventArgs e)
-    {
-        if (String.IsNullOrEmpty(riga2[1]) && !vinto)
-        {
-            riga2[1] = segno;
-            btn5.Text = segno;
-            cnt++;
-            if (segno == "X")
-            {
-                segno = "0";
-            }
-            else
-            {
-                segno = "X";
-            }
-            ltlTurno.Text = "Tocca a " + segno;
-            controllaVittoria();
-        }
-    }
-
-    protected void btn6_Click(object sender, EventArgs e)
-    {
-        if (String.IsNullOrEmpty(riga2[2]) && !vinto)
-        {
-            riga2[2] = segno;
-            btn6.Text = segno;
-            cnt++;
-            if (segno == "X")
-            {
-                segno = "0";
-            }
-            else
-            {
-                segno = "X";
-            }
-            ltlTurno.Text = "Tocca a " + segno;
-            controllaVittoria();
-        }
-    }
-
-    protected void btn7_Click(object sender, EventArgs e)
-    {
-        if (String.IsNullOrEmpty(riga3[0]) && !vinto)
-        {
-            riga3[0] = segno;
-            btn7.Text = segno;
-            cnt++;
-            if (segno == "X")
-            {
-                segno = "0";
-            }
-            else
-            {
-                segno = "X";
-            }
-            ltlTurno.Text = "Tocca a " + segno;
-            controllaVittoria();
-        }
-    }
-
-    protected void btn8_Click(object sender, EventArgs e)
-    {
-        if (String.IsNullOrEmpty(riga3[1]) && !vinto)
-        {
-            riga3[1] = segno;
-            btn8.Text = segno;
-            cnt++;
-            if (segno == "X")
-            {
-                segno = "0";
-            }
-            else
-            {
-                segno = "X";
-            }
-            ltlTurno.Text = "Tocca a " + segno;
-            controllaVittoria();
-        }
-    }
-
-    protected void btn9_Click(object sender, EventArgs e)
-    {
-        if (String.IsNullOrEmpty(riga3[2]) && !vinto)
-        {
-            riga3[2] = segno;
-            btn9.Text = segno;
+            btn.Text = segno;
             cnt++;
             if (segno == "X")
             {

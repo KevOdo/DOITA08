@@ -18,37 +18,37 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="btn1" runat="server" Text="" OnClick="btn1_Click" />
+                        <asp:Button ID="btn1" runat="server" Text="" OnClick="btn_Click" />
                     </td>
                     <td>
-                        <asp:Button ID="btn2" runat="server" Text="" OnClick="btn2_Click" />
+                        <asp:Button ID="btn2" runat="server" Text="" OnClick="btn_Click" />
                     </td>
                     <td>
-                        <asp:Button ID="btn3" runat="server" Text="" OnClick="btn3_Click" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <asp:Button ID="btn4" runat="server" Text="" OnClick="btn4_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="btn5" runat="server" Text="" OnClick="btn5_Click" />
-                    </td>
-                    <td>
-                        <asp:Button ID="btn6" runat="server" Text="" OnClick="btn6_Click" />
+                        <asp:Button ID="btn3" runat="server" Text="" OnClick="btn_Click" />
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <asp:Button ID="btn7" runat="server" Text="" OnClick="btn7_Click" />
+                        <asp:Button ID="btn4" runat="server" Text="" OnClick="btn_Click" />
                     </td>
                     <td>
-                        <asp:Button ID="btn8" runat="server" Text="" OnClick="btn8_Click" />
+                        <asp:Button ID="btn5" runat="server" Text="" OnClick="btn_Click" />
                     </td>
                     <td>
-                        <asp:Button ID="btn9" runat="server" Text="" OnClick="btn9_Click" />
+                        <asp:Button ID="btn6" runat="server" Text="" OnClick="btn_Click" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <asp:Button ID="btn7" runat="server" Text="" OnClick="btn_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="btn8" runat="server" Text="" OnClick="btn_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="btn9" runat="server" Text="" OnClick="btn_Click" />
                     </td>
                 </tr>
             </table>
