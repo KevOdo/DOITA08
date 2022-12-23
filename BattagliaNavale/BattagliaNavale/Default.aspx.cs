@@ -21,9 +21,8 @@ public partial class _Default : System.Web.UI.Page
 
         string id = col + row;
 
-        
-        lblHelp.Text = "id" + el.InnerText;
-        //HtmlElement cell = (HtmlElement)FindControl(id);
-        //cell.InnerText = "X";
+        HtmlGenericControl cell = (HtmlGenericControl)FindControl(id);
+        cell.InnerText = "X";
+
     }
 }

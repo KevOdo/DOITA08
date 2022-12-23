@@ -13,7 +13,8 @@
             <table>
                 <tr>
                     <td colspan="3">
-                        <asp:Literal ID="ltlTurno" runat="server"></asp:Literal>
+                        <!-- Literal che mostra a chi tocca giocare -->
+                        <asp:Literal ID="litTurno" runat="server"></asp:Literal>
                     </td>
                 </tr>
                 <tr>
@@ -53,8 +54,10 @@
                 </tr>
             </table>
             <div>
-                <asp:Literal ID="lit1" runat="server"></asp:Literal>
-                <asp:Literal ID="lit2" runat="server"></asp:Literal>
+                <!-- Literal che mostra chi ha vinto -->
+                <asp:Literal ID="litVittoria" runat="server"></asp:Literal>
+                <!-- Literal che mostra qunate partite ha vinto X e quante ha vinto 0 -->
+                <asp:Literal ID="litConto" runat="server"></asp:Literal>
             </div>
             <div>
                 <asp:Button ID="btnNuovaPartita" runat="server" Text="Nuova Partita" OnClick="btnNuovaPartita_Click" />
