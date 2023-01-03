@@ -1,2 +1,12 @@
 ﻿body {
+    background: #353535;
+}
+
+.griglia {
+    background: #ffffff;
+    margin-top: 20px;
+}
+
+.myBlue {
+    background: #2c98e0;
 }

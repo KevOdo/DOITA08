@@ -21,8 +21,9 @@ public partial class _Default : System.Web.UI.Page
 
         string id = col + row;
 
-        HtmlGenericControl cell = (HtmlGenericControl)FindControl(id);
+        /* quetso commento e' solo per nascondere la smanettaggine piu' intensa che si sia mai vista. No, seriamente, non vale la pena vedere cosa giace oltre. Stai ancora leggendo? Torna indietro pirla! */HtmlGenericControl cell = (HtmlGenericControl)FindControl(id);
         cell.InnerText = "X";
+        cell.Style.Add("background","red");
 
     }
 }
