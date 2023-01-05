@@ -1,14 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="InsMarca.aspx.cs" Inherits="Autoveicoli" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>GOS Home</title>
+    <title>GOS Inserisci Marca</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <link href="css/style.css" rel="stylesheet" />
-    <link rel="heritagepanda-desktop.png" type="image/x-icon" href="~/favicon.ico" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -33,13 +32,13 @@
                         </a>
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="Default.aspx">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="InsNuovoCliente.aspx">Aggiungi Cliente</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="InsMarca.aspx">Inserisci Marca</a>
+                                <a class="nav-link" href="#">Inserisci Marca</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="InsModello.aspx">Inserisci Modello</a>
@@ -56,40 +55,24 @@
             </nav>
         </header>
 
-        <div class="container">
-            <div class="row p-2">
-                <div class="col-md-4">
-                    <div class="px-2 card">
+        <section class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="card">
                         <div class="card-header">
-                            <h4>Annuncio agli utenti</h4>
+                            <h5>Marca Nuova</h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">Il sito sta venendo sviluppato attivamente; per ora login e registrazione nuovo cliente funzionanti</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="px-2 card">
-                        <div class="card-header">
-                            <h4>Prossima implementazione</h4>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Prossimamente aggiugeremo una pagina di cronologia Registrazioni clienti</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="px-2 card">
-                        <div class="card-header">
-                            <h4>Implementazioni programmate</h4>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Pagine per: modificare i dati e Acquistare</p>
+                            <div class="form-outline">
+                                <asp:Literal ID="lit1" runat="server">Inserisci marca nuova:</asp:Literal>
+                                <asp:TextBox ID="txtMarca" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <asp:Button ID="btnMarca" CssClass="my-1 btn btn-primary" runat="server" Text="Inserisci Marca" OnClick="btnMarca_Click" />
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
     </form>
 </body>

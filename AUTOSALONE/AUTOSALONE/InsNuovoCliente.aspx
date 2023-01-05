@@ -30,7 +30,7 @@
                         <a class="navbar-brand" href="#">
                             <img src="assets/immagini/ag2.png" height="30" />
                         </a>
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link" href="Default.aspx">Home</a>
                             </li>
@@ -38,16 +38,13 @@
                                 <a class="nav-link" href="#">Aggiungi Cliente</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Modifica Dati</a>
+                                <a class="nav-link" href="InsMarca.aspx">Inserisci Marca</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Acquista</a>
+                                <a class="nav-link" href="InsModello.aspx">Inserisci Modello</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Cronologia Vendite</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Inventario</a>
+                                <a class="nav-link" href="InsAuto.aspx">Inserisci Auto</a>
                             </li>
                         </ul>
                     </div>

@@ -21,6 +21,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OGGETTI", ".", "{E603A2B4-1
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "55998"
+		SlnRelativePath = "..\OGGETTI\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
