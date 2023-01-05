@@ -47,6 +47,11 @@ public partial class _Default : System.Web.UI.Page
         //7 leggo la tabella e la presento a video
         //litDati.Text = "Numero di records letti: " + DT.Rows.Count.ToString();
 
-        litDati.Text = DT.Rows[0]["COGNOME"].ToString();
+        //litDati.Text = DT.Rows[0]["COGNOME"].ToString();
+
+        foreach (DataRow riga in DT.Rows)
+        {
+            litDati.Text += riga["COGNOME"].ToString() + "<br/>";
+        }
     }
 }
