@@ -31,5 +31,7 @@ public partial class InsAuto : System.Web.UI.Page
         conn.Open();
         cmdAuto.ExecuteNonQuery();
         conn.Close();
+
+        DataBind();
     }
 }

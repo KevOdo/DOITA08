@@ -48,13 +48,8 @@ public partial class InsNuovoCliente : System.Web.UI.Page
         cmd.Connection = conn;
         string qry = "insert into CLIENTI values('"+cognome+"','"+nome+"','"+RS+"','"+indirizzo+"','"+citta+"','"+provincia+"','"+CAP+"')";
         cmd.CommandText = qry;
-        SqlDataAdapter DA = new SqlDataAdapter();
-        DA.SelectCommand = cmd;
-        //DA.InsertCommand = cmd;
-        DataTable DT = new DataTable();
         conn.Open();
-        DA.Fill(DT);
-        //DA.InsertCommand.ExecuteNonQuery();
+        cmd.ExecuteNonQuery();
         conn.Close();
 
         ClientScript.RegisterStartupScript(this.GetType(), "SUCCESS", "alert('Registrazione Cliente Completata');", true);

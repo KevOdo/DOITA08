@@ -157,28 +157,29 @@
         <section>
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-lg-8 col-xl-6">
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="chiave" DataSourceID="sdsAUTOMOBILI">
-                                <Columns>
-                                    <asp:BoundField DataField="chiave" HeaderText="chiave" ReadOnly="True" InsertVisible="False" SortExpression="chiave"></asp:BoundField>
-                                    <asp:BoundField DataField="MARCA" HeaderText="MARCA" SortExpression="MARCA"></asp:BoundField>
-                                    <asp:BoundField DataField="MODELLO" HeaderText="MODELLO" SortExpression="MODELLO"></asp:BoundField>
-                                    <asp:BoundField DataField="ANNO" HeaderText="ANNO" SortExpression="ANNO"></asp:BoundField>
-                                    <asp:BoundField DataField="TARGA" HeaderText="TARGA" SortExpression="TARGA"></asp:BoundField>
-                                    <asp:BoundField DataField="KILOMETRI" HeaderText="KILOMETRI" SortExpression="KILOMETRI"></asp:BoundField>
-                                    <asp:BoundField DataField="COLORE" HeaderText="COLORE" SortExpression="COLORE"></asp:BoundField>
-                                    <asp:BoundField DataField="PREZZO" HeaderText="PREZZO" SortExpression="PREZZO"></asp:BoundField>
-                                    <asp:BoundField DataField="ALIMENTAZIONE" HeaderText="ALIMENTAZIONE" SortExpression="ALIMENTAZIONE"></asp:BoundField>
-                                    <asp:BoundField DataField="CAMBIO" HeaderText="CAMBIO" SortExpression="CAMBIO"></asp:BoundField>
-                                    <asp:BoundField DataField="MOTORIZZAZIONE" HeaderText="MOTORIZZAZIONE" SortExpression="MOTORIZZAZIONE"></asp:BoundField>
-                                </Columns>
-                            </asp:GridView>
-                            <asp:SqlDataSource runat="server" ID="sdsAUTOMOBILI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="select AUTOMOBILI.chiave, MARCHE.MARCA, MODELLI.MODELLO, AUTOMOBILI.ANNO, AUTOMOBILI.TARGA, AUTOMOBILI.KILOMETRI, AUTOMOBILI.COLORE, AUTOMOBILI.PREZZO, MODELLI.ALIMENTAZIONE, MODELLI.CAMBIO, MODELLI.MOTORIZZAZIONE
-                from AUTOMOBILI
-                join MODELLI
-                on AUTOMOBILI.chiaveMODELLO=MODELLI.chiave
-                join MARCHE
-                on MODELLI.chiaveMARCA=MARCHE.chiave
-                order by MARCHE.MARCA"></asp:SqlDataSource>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="chiave" DataSourceID="sdsAUTOMOBILI" CssClass="table table-striped">
+                        <Columns>
+                            <asp:BoundField DataField="chiave" HeaderText="chiave" ReadOnly="True" InsertVisible="False" SortExpression="chiave"></asp:BoundField>
+                            <asp:BoundField DataField="MARCA" HeaderText="MARCA" SortExpression="MARCA"></asp:BoundField>
+                            <asp:BoundField DataField="MODELLO" HeaderText="MODELLO" SortExpression="MODELLO"></asp:BoundField>
+                            <asp:BoundField DataField="ANNO" HeaderText="ANNO" SortExpression="ANNO"></asp:BoundField>
+                            <asp:BoundField DataField="TARGA" HeaderText="TARGA" SortExpression="TARGA"></asp:BoundField>
+                            <asp:BoundField DataField="KILOMETRI" HeaderText="KILOMETRI" SortExpression="KILOMETRI"></asp:BoundField>
+                            <asp:BoundField DataField="COLORE" HeaderText="COLORE" SortExpression="COLORE"></asp:BoundField>
+                            <asp:BoundField DataField="PREZZO" HeaderText="PREZZO" SortExpression="PREZZO"></asp:BoundField>
+                            <asp:BoundField DataField="ALIMENTAZIONE" HeaderText="ALIMENTAZIONE" SortExpression="ALIMENTAZIONE"></asp:BoundField>
+                            <asp:BoundField DataField="CAMBIO" HeaderText="CAMBIO" SortExpression="CAMBIO"></asp:BoundField>
+                            <asp:BoundField DataField="MOTORIZZAZIONE" HeaderText="MOTORIZZAZIONE" SortExpression="MOTORIZZAZIONE"></asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                    <asp:SqlDataSource runat="server" ID="sdsAUTOMOBILI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="select AUTOMOBILI.chiave, MARCHE.MARCA, MODELLI.MODELLO, AUTOMOBILI.ANNO, AUTOMOBILI.TARGA, AUTOMOBILI.KILOMETRI, AUTOMOBILI.COLORE, AUTOMOBILI.PREZZO, MODELLI.ALIMENTAZIONE, MODELLI.CAMBIO, MODELLI.MOTORIZZAZIONE
+                        from AUTOMOBILI
+                        join MODELLI
+                        on AUTOMOBILI.chiaveMODELLO=MODELLI.chiave
+                        join MARCHE
+                        on MODELLI.chiaveMARCA=MARCHE.chiave
+                        order by MARCHE.MARCA"></asp:SqlDataSource>
+                </div>
             </div>
         </section>
 

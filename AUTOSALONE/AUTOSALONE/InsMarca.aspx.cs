@@ -33,5 +33,7 @@ public partial class Autoveicoli : System.Web.UI.Page
         cmdMarca.ExecuteNonQuery();
         conn.Close();
 
+        DataBind();
+
     }
 }

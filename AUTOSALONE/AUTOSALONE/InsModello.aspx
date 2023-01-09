@@ -11,7 +11,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        
+
         <header>
             <nav class="navbar navbar-expand-lg myBlue">
                 <div class="container-fluid">
@@ -97,7 +97,7 @@
                             <div class="form-outline">
                                 <asp:Literal ID="lit22" runat="server">Nome modello:</asp:Literal>
                                 <asp:TextBox ID="txtModello" runat="server" CssClass="form-control"></asp:TextBox>
-                            </div>                            
+                            </div>
 
                             <div class="row py-1">
                                 <div class="col-lg-6">
@@ -127,6 +127,25 @@
                             <asp:Button ID="btnModello" CssClass="my-1 btn btn-primary" runat="server" Text="Inserisci Modello" OnClick="btnModello_Click" />
                         </div>
                     </div>
+                </div>
+            </div>
+            <a href="AUTOSALONE.sln">AUTOSALONE.sln</a>
+        </section>
+
+        <section>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-lg-8 col-xl-6">
+                    <div>
+                        <asp:DropDownList ID="ddlSelectmarca" runat="server" DataTextField="MARCA" DataValueField="chiave" DataSourceID="sdsMARCHE" AutoPostBack="True"></asp:DropDownList>
+                    </div>
+                    <asp:GridView ID="GridView1" runat="server" DataSourceID="sdsMODELLI" CssClass="table table-striped table-sm"></asp:GridView>
+                    <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="select MODELLO, ALIMENTAZIONE, CAMBIO, MOTORIZZAZIONE
+                        from MODELLI
+                        where chiaveMARCA=@MARCA">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="ddlSelectmarca" PropertyName="SelectedValue" DefaultValue="1" Name="MARCA"></asp:ControlParameter>
+                        </SelectParameters>
+                    </asp:SqlDataSource>
                 </div>
             </div>
         </section>

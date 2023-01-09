@@ -100,6 +100,19 @@
             </div>
         </section>
 
+        <section>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-lg-8 col-xl-6">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsMARCHE" CssClass="table table-striped">
+                        <Columns>
+                            <asp:BoundField DataField="MARCA" HeaderText="MARCA" SortExpression="MARCA"></asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                    <asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="SELECT [MARCA] FROM [MARCHE] ORDER BY [MARCA]"></asp:SqlDataSource>
+                </div>
+            </div>
+        </section>
+
     </form>
 </body>
 </html>

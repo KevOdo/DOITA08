@@ -132,7 +132,7 @@
                                 <div class="col-md-2 col-sm-2">
                                     <div class="form-outline">
                                         <label for="" class="form-label">CAP</label>
-                                        <asp:TextBox ID="txtCAP" runat="server" CssClass="form-control" TextMode="Number" max="99999" ></asp:TextBox>
+                                        <asp:TextBox ID="txtCAP" runat="server" CssClass="form-control" TextMode="Number" max="99999"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -145,6 +145,25 @@
                 </div>
             </div>
         </div>
+
+        <section>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-lg-8 col-xl-6">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsCLIENTI" CssClass="table table-striped table-sm">
+                        <Columns>
+                            <asp:BoundField DataField="COGNOME" HeaderText="COGNOME" SortExpression="COGNOME"></asp:BoundField>
+                            <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME"></asp:BoundField>
+                            <asp:BoundField DataField="RAGIONE_SOCIALE" HeaderText="RAGIONE_SOCIALE" SortExpression="RAGIONE_SOCIALE"></asp:BoundField>
+                            <asp:BoundField DataField="INDIRIZZO" HeaderText="INDIRIZZO" SortExpression="INDIRIZZO"></asp:BoundField>
+                            <asp:BoundField DataField="CITTA" HeaderText="CITTA" SortExpression="CITTA"></asp:BoundField>
+                            <asp:BoundField DataField="PROVINCIA" HeaderText="PROVINCIA" SortExpression="PROVINCIA"></asp:BoundField>
+                            <asp:BoundField DataField="CAP" HeaderText="CAP" SortExpression="CAP"></asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                    <asp:SqlDataSource runat="server" ID="sdsCLIENTI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="SELECT [COGNOME], [NOME], [RAGIONE_SOCIALE], [INDIRIZZO], [CITTA], [PROVINCIA], [CAP] FROM [CLIENTI] ORDER BY [COGNOME]"></asp:SqlDataSource>
+                </div>
+            </div>
+        </section>
 
     </form>
 </body>

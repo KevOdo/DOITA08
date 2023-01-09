@@ -33,5 +33,7 @@ public partial class InsModello : System.Web.UI.Page
         cmdModello.ExecuteNonQuery();
         conn.Close();
 
+        DataBind();
+
     }
 }
