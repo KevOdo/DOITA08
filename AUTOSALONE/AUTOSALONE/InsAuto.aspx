@@ -15,37 +15,63 @@
         <header>
             <nav class="navbar navbar-expand-lg myBlue">
                 <div class="container-fluid">
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="fas fa-bars"></i>
-                    </button>
-
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <a class="navbar-brand" href="#">
                             <img src="assets/immagini/ag2.png" height="30" />
                         </a>
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="Default.aspx">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="InsNuovoCliente.aspx">Aggiungi Cliente</a>
+
+                            <li class="nav-item dropdown">
+                                <a class="dropModello nav-link">Gestione Marche</a>
+                                <ul class="dropdown-content">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="InsMarca.aspx">Inserisci Marca</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="ModMarca.aspx">Modifica Marca</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="InsMarca.aspx">Inserisci Marca</a>
+
+                            <li class="nav-item dropdown">
+                                <a class="dropModello nav-link">Gestione Modelli</a>
+                                <ul class="dropdown-content">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="InsModello.aspx">Inserisci Modello</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="ModModello.aspx">Modifica Modello</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="InsModello.aspx">Inserisci Modello</a>
+
+                            <li class="nav-item dropdown">
+                                <a class="dropModello nav-link">Gestione Auto</a>
+                                <ul class="dropdown-content">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="InsAuto.aspx">Inserisci Auto</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="ModAuto.aspx">Modifica Auto</a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Inserisci Auto</a>
+
+                            <li class="nav-item dropdown">
+                                <a class="dropModello nav-link">Gestione Clienti</a>
+                                <ul class="dropdown-content">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="InsNuovoCliente.aspx">Inserisci Cliente</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="ModCliente.aspx">Modifica Cliente</a>
+                                    </li>
+                                </ul>
                             </li>
+
                         </ul>
                     </div>
                     <div class="d-flex align-items-center">
