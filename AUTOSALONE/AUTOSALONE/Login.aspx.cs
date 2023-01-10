@@ -43,7 +43,7 @@ public partial class Login : System.Web.UI.Page
             return;
         }
 
-        Response.Redirect("Default.aspx");
+        Response.Redirect("Home.aspx");
 
     }
 }

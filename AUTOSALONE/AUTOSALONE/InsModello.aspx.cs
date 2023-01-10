@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
 
-public partial class InsModello : System.Web.UI.Page
+public partial class _InsModello : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-
     protected void btnModello_Click(object sender, EventArgs e)
     {
         // controllo formale

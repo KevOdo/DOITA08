@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
 
-public partial class InsNuovoCliente : System.Web.UI.Page
+public partial class _InsNuovoCliente : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -29,13 +29,15 @@ public partial class InsNuovoCliente : System.Web.UI.Page
         {
             ClientScript.RegisterStartupScript(this.GetType(), "ERROR", "alert('Dati Mancanti');", true);
             return;
-        } else
+        }
+        else
         {
             if (RS == "" && (nome == "" || cognome == ""))
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "ERROR", "alert('Dati Personali Mancanti');", true);
                 return;
-            } else if (RS != "" && (nome != "" || cognome != ""))
+            }
+            else if (RS != "" && (nome != "" || cognome != ""))
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "ERROR", "alert('Dati Personali Superflui');", true);
                 return;
@@ -46,13 +48,14 @@ public partial class InsNuovoCliente : System.Web.UI.Page
         conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = conn;
-        string qry = "insert into CLIENTI values('"+cognome+"','"+nome+"','"+RS+"','"+indirizzo+"','"+citta+"','"+provincia+"','"+CAP+"')";
+        string qry = "insert into CLIENTI values('" + cognome + "','" + nome + "','" + RS + "','" + indirizzo + "','" + citta + "','" + provincia + "','" + CAP + "')";
         cmd.CommandText = qry;
         conn.Open();
         cmd.ExecuteNonQuery();
         conn.Close();
 
         ClientScript.RegisterStartupScript(this.GetType(), "SUCCESS", "alert('Registrazione Cliente Completata');", true);
+        DataBind();
         return;
 
     }
