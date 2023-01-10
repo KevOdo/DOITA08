@@ -3,6 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    questa e' la prima pagina figlio
+    <asp:GridView ID="griglia" runat="server"></asp:GridView>
 </asp:Content>
 

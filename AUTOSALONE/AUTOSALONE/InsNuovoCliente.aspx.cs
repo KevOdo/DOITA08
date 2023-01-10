@@ -48,8 +48,16 @@ public partial class _InsNuovoCliente : System.Web.UI.Page
         conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
         SqlCommand cmd = new SqlCommand();
         cmd.Connection = conn;
-        string qry = "insert into CLIENTI values('" + cognome + "','" + nome + "','" + RS + "','" + indirizzo + "','" + citta + "','" + provincia + "','" + CAP + "')";
+        string qry = "insert into CLIENTI values(@cognome,@nome,@RS,@indirizzo,@citta,@provincia,@CAP)";
         cmd.CommandText = qry;
+        cmd.Parameters.AddWithValue("@cognome", cognome);
+        cmd.Parameters.AddWithValue("@nome", nome);
+        cmd.Parameters.AddWithValue("@RS", RS);
+        cmd.Parameters.AddWithValue("@indirizzo", indirizzo);
+        cmd.Parameters.AddWithValue("@citta", citta);
+        cmd.Parameters.AddWithValue("@provincia", provincia);
+        cmd.Parameters.AddWithValue("@CAP", CAP);
+
         conn.Open();
         cmd.ExecuteNonQuery();
         conn.Close();

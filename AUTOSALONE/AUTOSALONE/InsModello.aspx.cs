@@ -25,9 +25,21 @@ public partial class _InsModello : System.Web.UI.Page
         SqlConnection conn = new SqlConnection();
         SqlCommand cmdModello = new SqlCommand();
 
+        string marca = ddlMarca.SelectedValue.ToString();
+        string modello = txtModello.Text.Trim();
+        string alimentazione = ddlAlimentazione.SelectedValue.ToString();
+        string cambio = ddlCambio.SelectedValue.ToString();
+        string motor = txtMotor.Text.Trim();
+
         conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
         cmdModello.Connection = conn;
-        cmdModello.CommandText = "insert into MODELLI values(" + ddlMarca.SelectedValue.ToString() + ",'" + txtModello.Text.Trim() + "','" + ddlAlimentazione.SelectedValue.ToString() + "','" + ddlCambio.SelectedValue.ToString() + "','" + txtMotor.Text.Trim() + "')";
+        cmdModello.CommandText = "insert into MODELLI values(@marca,@modello,@alimentazio@cambio,@motor)";
+        cmdModello.Parameters.AddWithValue("@marca", marca);
+        cmdModello.Parameters.AddWithValue("@modello", modello);
+        cmdModello.Parameters.AddWithValue("@alimentazione", alimentazione);
+        cmdModello.Parameters.AddWithValue("@cambio", cambio);
+        cmdModello.Parameters.AddWithValue("@motor", motor);
+
         conn.Open();
         cmdModello.ExecuteNonQuery();
         conn.Close();

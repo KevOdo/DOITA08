@@ -26,7 +26,9 @@ public partial class _InsMarca : System.Web.UI.Page
         conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
         SqlCommand cmdMarca = new SqlCommand();
         cmdMarca.Connection = conn;
-        cmdMarca.CommandText = "insert into MARCHE values('" + txtMarca.Text.Trim() + "')";
+        cmdMarca.CommandText = "insert into MARCHE values(@marca)";
+        cmdMarca.Parameters.AddWithValue("@marca", txtMarca.Text.Trim());
+
         conn.Open();
         cmdMarca.ExecuteNonQuery();
         conn.Close();
