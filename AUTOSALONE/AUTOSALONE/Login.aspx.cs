@@ -16,8 +16,11 @@ public partial class Login : System.Web.UI.Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
+        string usr = USR.Text.Trim();
+        string pwd = PWD.Text.Trim();
+
         // Controlli Formali
-        if (USR.Text.Trim() == "" || PWD.Text.Trim() == "")
+        if (usr == "" || pwd == "")
         {
             ClientScript.RegisterStartupScript(this.GetType(), "ERRORE", "alert('Non ti conosco');", true);
             return;
@@ -25,14 +28,20 @@ public partial class Login : System.Web.UI.Page
 
         // Controlla se l'user esiste nel database
         SqlConnection conn = new SqlConnection();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
         SqlCommand cmd = new SqlCommand();
-        cmd.Connection = conn;
-        string qry = "select * from UTENTI where USR = '" + USR.Text.Trim() + "' and PWD = '" + PWD.Text.Trim() + "'";
-        cmd.CommandText = qry;
         SqlDataAdapter DA = new SqlDataAdapter();
-        DA.SelectCommand = cmd;
         DataTable DT = new DataTable();
+
+        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
+        cmd.Connection = conn;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "UTENTI_Login";
+        cmd.Parameters.AddWithValue("@usr", usr);
+        cmd.Parameters.AddWithValue("@pwd", pwd);
+
+        DA.SelectCommand = cmd;
+        
+
         conn.Open();
         DA.Fill(DT);
         conn.Close();
@@ -42,7 +51,7 @@ public partial class Login : System.Web.UI.Page
             ClientScript.RegisterStartupScript(this.GetType(), "ERRORE", "alert('Non ti conosco');", true);
             return;
         }
-
+        Session["usrType"] = DT.Rows[0][1].ToString();
         Response.Redirect("Home.aspx");
 
     }

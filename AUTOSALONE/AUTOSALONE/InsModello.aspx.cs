@@ -33,8 +33,9 @@ public partial class _InsModello : System.Web.UI.Page
 
         conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
         cmdModello.Connection = conn;
-        cmdModello.CommandText = "insert into MODELLI values(@marca,@modello,@alimentazio@cambio,@motor)";
-        cmdModello.Parameters.AddWithValue("@marca", marca);
+        cmdModello.CommandType = CommandType.StoredProcedure;
+        cmdModello.CommandText = "MODELLI_InsertModello";
+        cmdModello.Parameters.AddWithValue("@chiaveMarca", marca);
         cmdModello.Parameters.AddWithValue("@modello", modello);
         cmdModello.Parameters.AddWithValue("@alimentazione", alimentazione);
         cmdModello.Parameters.AddWithValue("@cambio", cambio);

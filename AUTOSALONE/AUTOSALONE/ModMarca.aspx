@@ -11,10 +11,12 @@
                         <h5>Modifica Marca</h5>
                     </div>
                     <div class="card-body">
+                        <!-- DropDownList per selezionare la marca da modificare -->
                         <div class="form-outline">
                             <asp:Literal ID="lit1" runat="server">Marca da Modificare:</asp:Literal>
-                            <asp:DropDownList ID="ddlMarcaMod" runat="server" DataTextField="MARCA" DataValueField="chiave" DataSourceID="sdsMARCHE" AutoPostBack="True"></asp:DropDownList><asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="SELECT [chiave], [MARCA] FROM [MARCHE] ORDER BY [MARCA]"></asp:SqlDataSource>
+                            <asp:DropDownList ID="ddlMarcaMod" runat="server" DataTextField="MARCA" DataValueField="chiave" DataSourceID="sdsMARCHE" AutoPostBack="True"></asp:DropDownList><asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MARCHE_GetAllMarche" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                         </div>
+                        <!-- Nuovo nome marca -->
                         <div class="form-outline">
                             <asp:Literal ID="lit2" runat="server">Nuovo nome:</asp:Literal>
                             <asp:TextBox ID="txtNomeNuovo" runat="server" CssClass="form-control" AutoPostBack="True"></asp:TextBox>
@@ -26,10 +28,11 @@
         </div>
     </section>
 
+    <!-- GridView per vedere tutte le marche nel database -->
     <section>
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-lg-8 col-xl-6">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsMARCHE" CssClass="table table-striped">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsMARCHE" CssClass="table table-striped" DataKeyNames="chiave">
                     <Columns>
                         <asp:BoundField DataField="MARCA" HeaderText="MARCA" SortExpression="MARCA"></asp:BoundField>
                     </Columns>

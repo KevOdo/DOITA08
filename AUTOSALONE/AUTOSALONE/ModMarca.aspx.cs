@@ -17,14 +17,15 @@ public partial class _ModMarca : System.Web.UI.Page
     protected void btnMarca_Click(object sender, EventArgs e)
     {
         SqlConnection conn = new SqlConnection();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
         SqlCommand cmd = new SqlCommand();
+        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
 
         string marca = txtNomeNuovo.Text.Trim();
         string chiave = ddlMarcaMod.SelectedValue;
 
         cmd.Connection = conn;
-        cmd.CommandText = "update MARCHE set MARCA=@marca where chiave=@chiave";
+        cmd.CommandType= CommandType.StoredProcedure;
+        cmd.CommandText = "MARCHE_ModificaMarca";
         cmd.Parameters.AddWithValue("@marca", marca);
         cmd.Parameters.AddWithValue("@chiave", chiave);
 

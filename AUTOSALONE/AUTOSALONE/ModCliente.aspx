@@ -50,9 +50,7 @@
                                     <asp:BoundField DataField="CAP" HeaderText="CAP" SortExpression="CAP"></asp:BoundField>
                                 </Columns>
                             </asp:GridView>
-                            <asp:SqlDataSource runat="server" ID="sdsCLIENTI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="select *
-                                from CLIENTI
-                                where NOME=@NOME and COGNOME=@COGNOME">
+                            <asp:SqlDataSource runat="server" ID="sdsCLIENTI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="CLIENTI_GetClientiByNomeCognome" SelectCommandType="StoredProcedure">
                                 <SelectParameters>
                                     <asp:ControlParameter ControlID="txtNome" PropertyName="Text" Name="NOME"></asp:ControlParameter>
                                     <asp:ControlParameter ControlID="txtCognome" PropertyName="Text" Name="COGNOME"></asp:ControlParameter>

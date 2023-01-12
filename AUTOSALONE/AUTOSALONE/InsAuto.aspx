@@ -11,7 +11,9 @@
                         <h5>Auto Nuova</h5>
                     </div>
                     <div class="card-body">
+                        <!-- Seleziona marca e modello -->
                         <div class="row">
+                            <!-- Seleziona marca dell'auto da aggiungere -->
                             <div class="col-lg-6">
                                 <div class="form-outline">
                                     <asp:Literal ID="Literal1" runat="server">Marca:</asp:Literal>
@@ -19,33 +21,38 @@
                                     <asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="SELECT [chiave], [MARCA] FROM [MARCHE] ORDER BY [MARCA]"></asp:SqlDataSource>
                                 </div>
                             </div>
+                            <!-- Seleziona modello dell'auto da aggiungere, in base alla marca selezionata -->
                             <div class="col-lg-6">
                                 <div class="form-outline">
                                     <asp:Literal ID="Literal2" runat="server">Modello:</asp:Literal>
-                                    <asp:DropDownList ID="ddlModello" runat="server" DataTextField="MODELLO" DataValueField="chiave" DataSourceID="sdsMODELLI"></asp:DropDownList><asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="select *
+                                    <asp:DropDownList ID="ddlModello" runat="server" DataTextField="MODELLO" DataValueField="chiave" DataSourceID="sdsMODELLI"></asp:DropDownList>
+                                    <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="select *
                                             from MODELLI
                                             where chiaveMARCA=@MARCA">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="ddlMarca" PropertyName="SelectedValue" Name="MARCA"></asp:ControlParameter>
                                         </SelectParameters>
                                     </asp:SqlDataSource>
-
                                 </div>
                             </div>
                         </div>
+                        <!-- Campi per l'inserimento dei dati dell'Auto -->
                         <div class="row">
+                            <!-- Anno -->
                             <div class="col-lg-4">
                                 <div class="form-outline">
                                     <asp:Literal ID="li1" runat="server">Anno:</asp:Literal>
                                     <asp:TextBox ID="txtAnno" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
                             </div>
+                            <!-- Targa -->
                             <div class="col-lg-4">
                                 <div class="form-outline">
                                     <asp:Literal ID="lit2" runat="server">Targa:</asp:Literal>
                                     <asp:TextBox ID="txtTarga" runat="server" CssClass="form-control" MaxLength="7"></asp:TextBox>
                                 </div>
                             </div>
+                            <!-- Kilometri -->
                             <div class="col-lg-4">
                                 <div class="form-outline">
                                     <asp:Literal ID="lit3" runat="server">Kilometri:</asp:Literal>
@@ -53,6 +60,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Colore e Prezzo -->
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-outline">
@@ -67,6 +75,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Bottone per inserire i dati nel database -->
                         <div class="py-1">
                             <asp:Button ID="btnAuto" runat="server" Text="Inserisci Auto" OnClick="btnAuto_Click" CssClass="btn btn-primary" />
                         </div>
@@ -76,6 +85,7 @@
         </div>
     </section>
 
+    <!-- GridView per vedere tutte le auto nel database -->
     <section>
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-lg-8 col-xl-6">

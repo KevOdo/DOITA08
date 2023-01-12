@@ -24,7 +24,7 @@
                                         <asp:DropDownList ID="ddlModMarca" runat="server" DataTextField="MARCA" DataValueField="chiave" DataSourceID="sdsMARCHE" AutoPostBack="True">
                                             <asp:ListItem Text="" disabled="disabled" />
                                         </asp:DropDownList>
-                                        <asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="SELECT [MARCA], [chiave] FROM [MARCHE] ORDER BY [MARCA]"></asp:SqlDataSource>
+                                        <asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MARCHE_GetAllMarche" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                     </div>
                                 </div>
                                 <!-- Dropdown per selezionare il tipo di modello -->
@@ -34,10 +34,8 @@
                                         <asp:DropDownList ID="ddlModModello" runat="server" DataTextField="MODELLO" DataValueField="MODELLO" DataSourceID="sdsMODELLI" AutoPostBack="True">
                                             <asp:ListItem Text="" />
                                         </asp:DropDownList>
-                                        <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="select DISTINCT MODELLO
-                                            from MODELLI
-                                            where chiaveMARCA=@MARCA">
-                                            <SelectParameters>
+                                        <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetDistinctModelloByMarca" SelectCommandType="StoredProcedure">
+                                            <selectparameters>
                                                 <asp:ControlParameter ControlID="ddlModMarca" PropertyName="SelectedValue" DefaultValue="1" Name="MARCA"></asp:ControlParameter>
                                             </SelectParameters>
                                         </asp:SqlDataSource>
@@ -56,10 +54,8 @@
                                         </asp:TemplateField>
                                     </Columns>--%>
                                 </asp:GridView>
-                                <asp:SqlDataSource runat="server" ID="sdsMODELLI2" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="select chiave, MODELLO, ALIMENTAZIONE, CAMBIO, MOTORIZZAZIONE
-                                    from MODELLI
-                                    where MODELLO=@MODELLO">
-                                    <SelectParameters>
+                                <asp:SqlDataSource runat="server" ID="sdsMODELLI2" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetModelloByName" SelectCommandType="StoredProcedure">
+                                    <selectparameters>
                                         <asp:ControlParameter ControlID="ddlModModello" PropertyName="SelectedValue" DefaultValue="" Name="MODELLO"></asp:ControlParameter>
                                     </SelectParameters>
                                 </asp:SqlDataSource>
@@ -68,7 +64,8 @@
                             <!-- Dropdown per selezionare la chiave del modello specifico da modificare -->
                             <div class="form-outline">
                                 <asp:Literal ID="Literal3" runat="server">Seleziona chiave dell'elemento da modificare</asp:Literal>
-                                <asp:DropDownList ID="ddlChiaveModello" runat="server" DataTextField="chiave" DataValueField="chiave" DataSourceID="sdsCHIAVIMODELLI"></asp:DropDownList><asp:SqlDataSource runat="server" ID="sdsCHIAVIMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="SELECT [chiave] FROM [MODELLI] WHERE ([MODELLO] = @MODELLO)">
+                                <asp:DropDownList ID="ddlChiaveModello" runat="server" DataTextField="chiave" DataValueField="chiave" DataSourceID="sdsCHIAVIMODELLI"></asp:DropDownList>
+                                <asp:SqlDataSource runat="server" ID="sdsCHIAVIMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetKeysByName" SelectCommandType="StoredProcedure">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="ddlModModello" PropertyName="SelectedValue" Name="MODELLO" Type="String"></asp:ControlParameter>
                                     </SelectParameters>

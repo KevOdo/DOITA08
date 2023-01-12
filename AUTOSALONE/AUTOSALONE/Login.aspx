@@ -23,16 +23,19 @@
                                 <img class="py-2" src="assets/immagini/ag2-white.png" height="120" />
                                 <h2 class="fw-bold text-uppercase py-1">Portale Dipendenti</h2>
 
+                                <!-- Email -->
                                 <div class="form-outline form-white">
                                     <label class="form-label" for="USR">Email</label>
                                     <asp:TextBox ID="USR" runat="server" class="form-control form-control-lg" TextMode="Email"></asp:TextBox>
                                 </div>
 
+                                <!-- Password -->
                                 <div class="form-outline form-white">
                                     <label class="form-label" for="PWD">Password</label>
                                     <asp:TextBox ID="PWD" runat="server" class="form-control form-control-lg" TextMode="Password"></asp:TextBox>
                                 </div>
 
+                                <!-- Bottone per eseguire il login -->
                                 <div class="py-2">
                                     <asp:Button ID="btnLogin" runat="server" Text="LOGIN" class="btn btn-outline-light btn-lg" OnClick="btnLogin_Click" />
                                 </div>

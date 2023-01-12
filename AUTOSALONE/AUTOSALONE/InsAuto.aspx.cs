@@ -26,7 +26,7 @@ public partial class _InsAuto : System.Web.UI.Page
         SqlConnection conn = new SqlConnection();
         SqlCommand cmdAuto = new SqlCommand();
 
-        string modello = ddlModello.SelectedValue.ToString();
+        string chiaveModello = ddlModello.SelectedValue.ToString();
         string anno = txtAnno.Text.ToString();
         string targa = txtTarga.Text.Trim();
         string KM = txtKM.Text.Trim();
@@ -35,8 +35,9 @@ public partial class _InsAuto : System.Web.UI.Page
 
         conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
         cmdAuto.Connection = conn;
-        cmdAuto.CommandText = "insert into AUTOMOBILI values(@modello,@anno,@targa,@KM,@colore,@prezzo)";
-        cmdAuto.Parameters.AddWithValue("@modello", modello);
+        cmdAuto.CommandType = CommandType.StoredProcedure;
+        cmdAuto.CommandText = "AUTOMOBILI_InsertAuto";
+        cmdAuto.Parameters.AddWithValue("@chiaveModello", chiaveModello);
         cmdAuto.Parameters.AddWithValue("@anno", anno);
         cmdAuto.Parameters.AddWithValue("@targa", targa);
         cmdAuto.Parameters.AddWithValue("@KM", KM);

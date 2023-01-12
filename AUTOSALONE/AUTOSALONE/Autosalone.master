@@ -14,19 +14,25 @@
 <body>
     <form id="form1" runat="server">
 
+        <!-- Menu Navbar visibile in tutto il sito -->
         <header>
             <nav class="navbar navbar-expand-lg myBlue">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Logo Azienda -->
                         <a class="navbar-brand" href="#">
                             <img src="assets/immagini/ag2.png" height="30" />
                         </a>
+
+                        <!-- Elementi allineati a sinistra -->
                         <ul class="navbar-nav">
+                            <!-- Home -->
                             <li class="nav-item">
                                 <a class="nav-link" href="Home.aspx">Home</a>
                             </li>
-
-                            <li class="nav-item dropdown">
+                            
+                            <!-- ADMIN - Sezione Gestione Marche: Inserisci, Modifica -->
+                            <li id="dropMarche" class="nav-item dropdown" runat="server">
                                 <a class="dropModello nav-link">Gestione Marche</a>
                                 <ul class="dropdown-content">
                                     <li class="nav-item">
@@ -38,7 +44,8 @@
                                 </ul>
                             </li>
 
-                            <li class="nav-item dropdown">
+                            <!-- ADMIN - Sezione Gestione Modelli: Inserisci, Modifica -->
+                            <li id="dropModelli" class="nav-item dropdown" runat="server">
                                 <a class="dropModello nav-link">Gestione Modelli</a>
                                 <ul class="dropdown-content">
                                     <li class="nav-item">
@@ -50,7 +57,8 @@
                                 </ul>
                             </li>
 
-                            <li class="nav-item dropdown">
+                            <!-- ADMIN - Sezione Gestione Auto: Inserisci, Modifica -->
+                            <li id="dropAuto" class="nav-item dropdown" runat="server">
                                 <a class="dropModello nav-link">Gestione Auto</a>
                                 <ul class="dropdown-content">
                                     <li class="nav-item">
@@ -62,6 +70,7 @@
                                 </ul>
                             </li>
 
+                            <!-- Sezione Gestione Clienti: Inserisci, Modifica -->
                             <li class="nav-item dropdown">
                                 <a class="dropModello nav-link">Gestione Clienti</a>
                                 <ul class="dropdown-content">
@@ -74,10 +83,42 @@
                                 </ul>
                             </li>
 
+                            <!-- ADMIN - Sezione Gestione Filiali: Inserisci, Modifica -->
+                            <li id="dropFiliali" class="nav-item dropdown" runat="server">
+                                <a class="dropModello nav-link">Gestione Filiali</a>
+                                <ul class="dropdown-content">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="#">Aggiungi Filiale</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="#">Modifica Filiale</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- ADMIN - Sezione Gestione Venditori: Inserisci, Modifica -->
+                            <li id="dropVenditori" class="nav-item dropdown" runat="server">
+                                <a class="dropModello nav-link">Gestione Venditori</a>
+                                <ul class="dropdown-content">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="#">Aggiungi Venditore</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item nav-link" href="#">Modifica Venditore</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Transazioni -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Transazioni</a>
+                            </li>
+
                         </ul>
                     </div>
+                    <!-- Bottone Log Out allineato a destra -->
                     <div class="d-flex align-items-center">
-                        <a class="text-reset me-3" href="Login.aspx">LOG OUT</a>
+                        <asp:LinkButton class="btn btn-danger" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" href="Login.aspx">LOG OUT</asp:LinkButton>
                     </div>
                 </div>
             </nav>

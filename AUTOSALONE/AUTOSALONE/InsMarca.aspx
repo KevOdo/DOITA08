@@ -10,6 +10,7 @@
                     <div class="card-header">
                         <h5>Marca Nuova</h5>
                     </div>
+                    <!-- Inserimento di Marca nuova -->
                     <div class="card-body">
                         <div class="form-outline">
                             <asp:Literal ID="lit1" runat="server">Inserisci marca nuova:</asp:Literal>
@@ -22,6 +23,7 @@
         </div>
     </section>
 
+    <!-- GridView per vedere tutte le marche nel database -->
     <section>
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-lg-8 col-xl-6">
@@ -30,7 +32,7 @@
                         <asp:BoundField DataField="MARCA" HeaderText="MARCA" SortExpression="MARCA"></asp:BoundField>
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="SELECT [MARCA] FROM [MARCHE] ORDER BY [MARCA]"></asp:SqlDataSource>
+                <asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MARCHE_GetAllMarche" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </div>
         </div>
     </section>

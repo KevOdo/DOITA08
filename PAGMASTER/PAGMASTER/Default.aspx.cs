@@ -20,7 +20,8 @@ public partial class _Default : System.Web.UI.Page
 
         conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
         cmd.Connection = conn;
-        cmd.CommandText = "select * from MARCHE where MARCA=@marca";
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "MARCHE_SelezionaPerMarca";
         cmd.Parameters.AddWithValue("@marca",m);
 
         DA.SelectCommand = cmd;

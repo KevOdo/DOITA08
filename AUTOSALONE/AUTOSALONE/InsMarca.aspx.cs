@@ -23,10 +23,12 @@ public partial class _InsMarca : System.Web.UI.Page
 
         // database operations
         SqlConnection conn = new SqlConnection();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
         SqlCommand cmdMarca = new SqlCommand();
+        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
+        
         cmdMarca.Connection = conn;
-        cmdMarca.CommandText = "insert into MARCHE values(@marca)";
+        cmdMarca.CommandType = CommandType.StoredProcedure;
+        cmdMarca.CommandText = "MARCHE_InsertMarca";
         cmdMarca.Parameters.AddWithValue("@marca", txtMarca.Text.Trim());
 
         conn.Open();

@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <!-- Inserimento Dati del Cliente -->
     <section class="container py-5">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-lg-8 col-xl-6">
@@ -12,6 +13,7 @@
                     </div>
                     <div class="card-body">
 
+                        <!-- Nome e Cognome -->
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-outline">
@@ -28,16 +30,19 @@
                             </div>
                         </div>
 
+                        <!-- Ragione Sociale -->
                         <div class="form-outline">
                             <label class="form-label" for="">Ragione Sociale</label>
                             <asp:TextBox ID="txtRS" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
 
+                        <!-- Indirizzo -->
                         <div class="form-outline">
                             <label for="" class="form-label">Indirizzo</label>
                             <asp:TextBox ID="txtIndirizzo" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
 
+                        <!-- Cirra', Provincia e CAP -->
                         <div class="row">
                             <div class="col-md-8 col-sm-8">
                                 <div class="form-outline">
@@ -59,6 +64,7 @@
                             </div>
                         </div>
 
+                        <!-- Bottone per inserire i dati nel database -->
                         <div class="form-outline py-1">
                             <asp:Button ID="btnRegistra" runat="server" Text="Salva Dati" CssClass="btn btn-primary" OnClick="btnRegistra_Click" />
                         </div>
@@ -68,6 +74,7 @@
         </div>
     </section>
 
+    <!-- GridView per vedere tutti i clienti nel database -->
     <section>
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-lg-8 col-xl-6">
@@ -82,7 +89,7 @@
                         <asp:BoundField DataField="CAP" HeaderText="CAP" SortExpression="CAP"></asp:BoundField>
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource runat="server" ID="sdsCLIENTI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="SELECT [COGNOME], [NOME], [RAGIONE_SOCIALE], [INDIRIZZO], [CITTA], [PROVINCIA], [CAP] FROM [CLIENTI] ORDER BY [COGNOME]"></asp:SqlDataSource>
+                <asp:SqlDataSource runat="server" ID="sdsCLIENTI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="CLIENTI_GetAllClienti" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </div>
         </div>
     </section>
