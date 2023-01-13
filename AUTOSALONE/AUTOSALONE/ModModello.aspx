@@ -35,7 +35,7 @@
                                             <asp:ListItem Text="" />
                                         </asp:DropDownList>
                                         <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetDistinctModelloByMarca" SelectCommandType="StoredProcedure">
-                                            <selectparameters>
+                                            <SelectParameters>
                                                 <asp:ControlParameter ControlID="ddlModMarca" PropertyName="SelectedValue" DefaultValue="1" Name="MARCA"></asp:ControlParameter>
                                             </SelectParameters>
                                         </asp:SqlDataSource>
@@ -45,17 +45,18 @@
 
                             <!-- Gridview che mostra tutte le varianti del modello selezionato -->
                             <div class="py-2">
-                                <asp:GridView ID="GridView1" runat="server" DataSourceID="sdsMODELLI2" CssClass="table table-striped table-sm">
-                                    <%--<Columns>
-                                        <asp:TemplateField HeaderText="SELEZIONA">
-                                            <ItemTemplate>
-                                                <asp:RadioButton ID="RadioButton1" runat="server" name="rdb" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>--%>
+                                <asp:GridView ID="gridModello" runat="server" AutoGenerateColumns="false" DataSourceID="sdsMODELLI2" DataKeyNames="chiave" CssClass="table table-striped table-sm">
+                                    <Columns>
+                                        <asp:CommandField ShowSelectButton="true" HeaderText="Seleziona:" />
+                                        <asp:BoundField DataField="MODELLO" HeaderText="MODELLO" SortExpression="MODELLO" />
+                                        <asp:BoundField DataField="ALIMENTAZIONE" HeaderText="ALIMENTAZIONE" SortExpression="ALIMENTAZIONE" />
+                                        <asp:BoundField DataField="CAMBIO" HeaderText="CAMBIO" SortExpression="CAMBIO" />
+                                        <asp:BoundField DataField="MOTORIZZAZIONE" HeaderText="MOTORIZZAZIONE" SortExpression="MOTORIZZAZIONE" />
+                                    </Columns>
+                                    <SelectedRowStyle BackColor="#2c98e0" />
                                 </asp:GridView>
                                 <asp:SqlDataSource runat="server" ID="sdsMODELLI2" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetModelloByName" SelectCommandType="StoredProcedure">
-                                    <selectparameters>
+                                    <SelectParameters>
                                         <asp:ControlParameter ControlID="ddlModModello" PropertyName="SelectedValue" DefaultValue="" Name="MODELLO"></asp:ControlParameter>
                                     </SelectParameters>
                                 </asp:SqlDataSource>
@@ -63,54 +64,23 @@
 
                             <!-- Dropdown per selezionare la chiave del modello specifico da modificare -->
                             <div class="form-outline">
-                                <asp:Literal ID="Literal3" runat="server">Seleziona chiave dell'elemento da modificare</asp:Literal>
-                                <asp:DropDownList ID="ddlChiaveModello" runat="server" DataTextField="chiave" DataValueField="chiave" DataSourceID="sdsCHIAVIMODELLI"></asp:DropDownList>
-                                <asp:SqlDataSource runat="server" ID="sdsCHIAVIMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetKeysByName" SelectCommandType="StoredProcedure">
-                                    <SelectParameters>
-                                        <asp:ControlParameter ControlID="ddlModModello" PropertyName="SelectedValue" Name="MODELLO" Type="String"></asp:ControlParameter>
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
-                            </div>
-                        </section>
-
-                        <!-- Selezione dei campi da modificare -->
-                        <section class="py-2">
-                            <h5>Seleziona elementi da cambiare:</h5>
-                            <!-- Ogni campo e' un checkbox, per poter modificare piu' di un campo -->
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="litMod" runat="server">Modello:</asp:Literal>
-                                    <asp:CheckBox ID="chkMod" runat="server" />
-                                </div>
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="litAlim" runat="server">Alimentazione:</asp:Literal>
-                                    <asp:CheckBox ID="chkAlim" runat="server" />
-                                </div>
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="litCambio" runat="server">Cambio:</asp:Literal>
-                                    <asp:CheckBox ID="chkCambio" runat="server" />
-                                </div>
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="litMotor" runat="server">Motorizzazione:</asp:Literal>
-                                    <asp:CheckBox ID="chkMotor" runat="server" />
-                                </div>
+                                <asp:Button ID="btnModifica" runat="server" Text="Modifica" OnClick="btnModifica_Click" CssClass="my-1 btn btn-primary"/>
                             </div>
                         </section>
 
                         <!-- Modifica dei dati da cambiare -->
                         <section class="py-2">
-                            <h5>Cambia Dati:</h5>
                             <!-- Nome modello e Motorizzazione -->
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-outline">
-                                        <asp:Literal ID="lit22" runat="server">Nome modello:</asp:Literal>
+                                        <asp:Literal ID="lit22" runat="server">Modello:</asp:Literal>
                                         <asp:TextBox ID="txtModello" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-outline">
-                                        <asp:Literal ID="lit55" runat="server">Inserisci motorizzazione:</asp:Literal>
+                                        <asp:Literal ID="lit55" runat="server">Motorizzazione:</asp:Literal>
                                         <asp:TextBox ID="txtMotor" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
@@ -138,7 +108,7 @@
                             </div>
 
                             <!-- Bottone per mandare il query SQL per aggiornare la tabella -->
-                            <asp:Button ID="btnModello" CssClass="my-1 btn btn-primary" runat="server" Text="Modifica Modello" OnClick="btnModello_Click" />
+                            <asp:Button ID="btnModello" CssClass="my-1 btn btn-primary" runat="server" Text="Salva Modifica" OnClick="btnModello_Click" />
 
                         </section>
 

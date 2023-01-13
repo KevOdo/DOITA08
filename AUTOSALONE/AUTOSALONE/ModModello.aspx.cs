@@ -15,60 +15,61 @@ public partial class _ModModello : System.Web.UI.Page
     }
     protected void btnModello_Click(object sender, EventArgs e)
     {
+        string chiave = gridModello.SelectedValue.ToString();
         string modello = txtModello.Text.Trim();
-        string alimentazione = ddlAlimentazione.SelectedValue.ToString();
-        string cambio = ddlCambio.SelectedValue.ToString();
+        string alimentazione = ddlAlimentazione.SelectedValue.ToString().Trim();
+        string cambio = ddlCambio.SelectedValue.ToString().Trim();
         string motorizzazione = txtMotor.Text.Trim();
 
         SqlConnection conn = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
+
         conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
         cmd.Connection = conn;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "MODELLI_ModificaModello";
 
-        string qry = "update MODELLI set";
-        if (chkMod.Checked == true)
-        {
-            if (modello == "")
-            {
-                return;
-            }
-            qry += " MODELLO='" + modello + "',";
-        }
-        if (chkAlim.Checked == true)
-        {
-            if (alimentazione == "")
-            {
-                return;
-            }
-            qry += " ALIMENTAZIONE='" + alimentazione + "',";
-        }
-        if (chkCambio.Checked == true)
-        {
-            if (cambio == "")
-            {
-                return;
-            }
-            qry += " CAMBIO='" + cambio + "',";
-        }
-        if (chkMotor.Checked == true)
-        {
-            if (motorizzazione == "")
-            {
-                return;
-            }
-            qry += " MOTORIZZAZIONE='" + motorizzazione + "',";
-        }
-        if (qry.EndsWith(","))
-        {
-            qry = qry.Remove(qry.Length - 1);
-        }
-        qry += " where chiave=" + ddlChiaveModello.SelectedValue;
+        cmd.Parameters.AddWithValue("@chiave", chiave);
+        cmd.Parameters.AddWithValue("@modello", modello);
+        cmd.Parameters.AddWithValue("@alimentazione", alimentazione);
+        cmd.Parameters.AddWithValue("@cambio", cambio);
+        cmd.Parameters.AddWithValue("@motorizzazione", motorizzazione);
 
-        cmd.CommandText = qry;
         conn.Open();
         cmd.ExecuteNonQuery();
         conn.Close();
 
         DataBind();
+
+    }
+
+    protected void btnModifica_Click(object sender, EventArgs e)
+    {
+        if (gridModello.SelectedValue == null)
+        {
+            return;
+        }
+
+        SqlConnection conn = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        SqlDataAdapter DA = new SqlDataAdapter();
+        DataTable DT = new DataTable();
+        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
+        string chiave = gridModello.SelectedValue.ToString();
+
+        cmd.Connection = conn;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "MODELLI_GetRecordByKey";
+        cmd.Parameters.AddWithValue("@chiave", chiave);
+
+        DA.SelectCommand = cmd;
+        DA.Fill(DT);
+
+        txtModello.Text = DT.Rows[0][0].ToString();
+        txtMotor.Text = DT.Rows[0][3].ToString();
+
+        ddlAlimentazione.Text = DT.Rows[0][1].ToString().Trim();
+        ddlCambio.Text = DT.Rows[0][2].ToString().Trim();
+        
     }
 }
