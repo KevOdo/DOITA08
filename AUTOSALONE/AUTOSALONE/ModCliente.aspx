@@ -17,30 +17,51 @@
                             <h5>Seleziona cliente da modificare:</h5>
                             <!-- Seleziona Nome e Cognome del cliente che si vuole modificare -->
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-lg-5">
                                     <div class="form-outline">
-                                        <label for="" class="form-label">Nome</label>
+                                        <label for="" class="form-label">Nome:</label>
                                         <asp:TextBox ID="txtNome" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-lg-5">
                                     <div class="form-outline">
-                                        <label class="form-label" for="">Cognome</label>
+                                        <label class="form-label" for="">Cognome:</label>
                                         <asp:TextBox ID="txtCognome" runat="server" CssClass="form-control"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                                <!-- Bottone per cercare il cliente in base ad i dati inseriti -->
+                                <div class="col-lg-2">
+                                    <div class="form-outline py-2">
+                                        <label class="form-label" for=""></label>
+                                        <asp:Button ID="btnCerca" runat="server" Text="Cerca Cliente" OnClick="btnCerca_Click" class="btn btn-primary" />
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Bottone per cercare il cliente in base ad i dati inseriti -->
-                            <div class="py-2">
-                                <asp:Button ID="btnCerca" runat="server" Text="Cerca Cliente" OnClick="btnCerca_Click" class="btn btn-primary" />
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <div class="form-outline">
+                                        <label for="" class="form-label">Ragione Sociale:</label>
+                                        <asp:TextBox ID="txtRS" runat="server" CssClass="form-control"></asp:TextBox>
+                                    </div>
+                                </div>
+
+                                <!-- Bottone per cercare il cliente in base ad i dati inseriti -->
+                                <div class="col-lg-2">
+                                    <div class="form-outline py-2">
+                                        <label class="form-label" for=""></label>
+                                        <asp:Button ID="btnCercaRS" runat="server" Text="Cerca Cliente" class="btn btn-primary" OnClick="btnCercaRS_Click" />
+                                    </div>
+                                </div>
                             </div>
 
+
                             <!-- Gridview per vedere tutti i clienti che hanno quei dati -->
-                            <asp:GridView ID="GridView1" runat="server" DataSourceID="sdsCLIENTI" CssClass="table table-striped table-sm" AutoGenerateColumns="False" DataKeyNames="chiave">
+                            <asp:GridView ID="gridClienti" runat="server" DataSourceID="sdsCLIENTI" CssClass="table table-striped table-sm" AutoGenerateColumns="False" DataKeyNames="chiave">
                                 <Columns>
-                                    <asp:BoundField DataField="chiave" HeaderText="chiave" ReadOnly="True" InsertVisible="False" SortExpression="chiave"></asp:BoundField>
+                                    <asp:CommandField ShowSelectButton="true" />
                                     <asp:BoundField DataField="COGNOME" HeaderText="COGNOME" SortExpression="COGNOME"></asp:BoundField>
                                     <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME"></asp:BoundField>
                                     <asp:BoundField DataField="RAGIONE_SOCIALE" HeaderText="RAGIONE_SOCIALE" SortExpression="RAGIONE_SOCIALE"></asp:BoundField>
@@ -49,6 +70,7 @@
                                     <asp:BoundField DataField="PROVINCIA" HeaderText="PROVINCIA" SortExpression="PROVINCIA"></asp:BoundField>
                                     <asp:BoundField DataField="CAP" HeaderText="CAP" SortExpression="CAP"></asp:BoundField>
                                 </Columns>
+                                <SelectedRowStyle BackColor="#2c98e0" />
                             </asp:GridView>
                             <asp:SqlDataSource runat="server" ID="sdsCLIENTI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="CLIENTI_GetClientiByNomeCognome" SelectCommandType="StoredProcedure">
                                 <SelectParameters>
@@ -57,46 +79,68 @@
                                 </SelectParameters>
                             </asp:SqlDataSource>
 
-                            <!-- Dropdown per selezionare la chiave del cliente specifico da modificare -->
-                            <div class="form-outline">
-                                <asp:Literal ID="Literal3" runat="server">Seleziona chiave del cliente da modificare</asp:Literal>
-                                <asp:DropDownList ID="ddlChiaveCliente" runat="server" DataTextField="chiave" DataValueField="chiave" DataSourceID="sdsCLIENTI"></asp:DropDownList>
+                            <!-- Bottone per confermare marca da modificare -->
+                            <div class="py-2">
+                                <asp:Button CssClass="my-1 btn btn-primary" ID="btnModifica" runat="server" Text="Modifica" OnClick="btnModifica_Click" />
                             </div>
                         </section>
 
-                        <!-- Selezione dei campi da modificare -->
                         <section class="py-2">
-                            <h5>Seleziona elementi da cambiare:</h5>
-                            <!-- Ogni campo e' un checkbox, per poter modificare piu' di un campo -->
+                            <h5>Modifica dati cliente:</h5>
+                            <!-- Nome e Cognome -->
                             <div class="row">
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="litMod" runat="server">Cognome:</asp:Literal>
-                                    <asp:CheckBox ID="chkMod" runat="server" />
+                                <div class="col-md-6">
+                                    <div class="form-outline">
+                                        <label for="" class="form-label">Nome</label>
+                                        <asp:TextBox ID="txtNomeMod" runat="server" CssClass="form-control"></asp:TextBox>
+                                    </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="litAlim" runat="server">Nome:</asp:Literal>
-                                    <asp:CheckBox ID="chkAlim" runat="server" />
+
+                                <div class="col-md-6">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="">Cognome</label>
+                                        <asp:TextBox ID="txtCognomeMod" runat="server" CssClass="form-control"></asp:TextBox>
+                                    </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="litCambio" runat="server">Ragione Sociale:</asp:Literal>
-                                    <asp:CheckBox ID="chkCambio" runat="server" />
+                            </div>
+
+                            <!-- Ragione Sociale -->
+                            <div class="form-outline">
+                                <label class="form-label" for="">Ragione Sociale</label>
+                                <asp:TextBox ID="txtRSMod" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+
+                            <!-- Indirizzo -->
+                            <div class="form-outline">
+                                <label for="" class="form-label">Indirizzo</label>
+                                <asp:TextBox ID="txtIndirizzoMod" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+
+                            <!-- Cirra', Provincia e CAP -->
+                            <div class="row">
+                                <div class="col-md-8 col-sm-8">
+                                    <div class="form-outline">
+                                        <label for="" class="form-label">Citta'</label>
+                                        <asp:TextBox ID="txtCittaMod" runat="server" CssClass="form-control"></asp:TextBox>
+                                    </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="litMotor" runat="server">Indirizzo:</asp:Literal>
-                                    <asp:CheckBox ID="chkMotor" runat="server" />
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="form-outline">
+                                        <label for="" class="form-label">Provincia</label>
+                                        <asp:TextBox ID="txtProvinciaMod" runat="server" CssClass="form-control" MaxLength="2"></asp:TextBox>
+                                    </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="Literal1" runat="server">Citta:</asp:Literal>
-                                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="form-outline">
+                                        <label for="" class="form-label">CAP</label>
+                                        <asp:TextBox ID="txtCAPMod" runat="server" CssClass="form-control" TextMode="Number" max="99999"></asp:TextBox>
+                                    </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="Literal2" runat="server">Provincia:</asp:Literal>
-                                    <asp:CheckBox ID="CheckBox2" runat="server" />
-                                </div>
-                                <div class="col-lg-3">
-                                    <asp:Literal ID="Literal4" runat="server">CAP:</asp:Literal>
-                                    <asp:CheckBox ID="CheckBox3" runat="server" />
-                                </div>
+                            </div>
+
+                            <!-- Bottone per inserire i dati nel database -->
+                            <div class="form-outline py-1">
+                                <asp:Button ID="btnRegistra" runat="server" Text="Salva Modifiche" CssClass="btn btn-primary" OnClick="btnRegistra_Click" />
                             </div>
                         </section>
                     </div>

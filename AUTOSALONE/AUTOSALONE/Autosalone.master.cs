@@ -15,6 +15,7 @@ public partial class Autosalone : System.Web.UI.MasterPage
         dropAuto.Visible = false;
         dropFiliali.Visible = false;
         dropVenditori.Visible = false;
+        dropReport.Visible = false;
 
         // se l'utente e' admin mostra quei campi
         if (Session["usrType"].ToString() == "A")
@@ -24,6 +25,7 @@ public partial class Autosalone : System.Web.UI.MasterPage
             dropAuto.Visible = true;
             dropFiliali.Visible = true;
             dropVenditori.Visible = true;
+            dropReport.Visible = true;
         }
     }
 

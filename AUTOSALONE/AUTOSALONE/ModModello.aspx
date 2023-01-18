@@ -31,7 +31,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-outline">
                                         <asp:Literal ID="Literal2" runat="server">Modello:</asp:Literal>
-                                        <asp:DropDownList ID="ddlModModello" runat="server" DataTextField="MODELLO" DataValueField="MODELLO" DataSourceID="sdsMODELLI" AutoPostBack="True">
+                                        <asp:DropDownList ID="ddlModModello" runat="server" DataTextField="MODELLO" DataValueField="MODELLO" DataSourceID="sdsMODELLI" AutoPostBack="True" OnDataBound="btnAggiorna_Click">
                                             <asp:ListItem Text="" />
                                         </asp:DropDownList>
                                         <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetDistinctModelloByMarca" SelectCommandType="StoredProcedure">
@@ -64,7 +64,7 @@
 
                             <!-- Dropdown per selezionare la chiave del modello specifico da modificare -->
                             <div class="form-outline">
-                                <asp:Button ID="btnModifica" runat="server" Text="Modifica" OnClick="btnModifica_Click" CssClass="my-1 btn btn-primary"/>
+                                <asp:Button ID="btnModifica" runat="server" Text="Modifica" OnClick="btnModifica_Click" CssClass="my-1 btn btn-primary" />
                             </div>
                         </section>
 
@@ -105,6 +105,14 @@
                                         <asp:ListItem>Automatico</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
+                            </div>
+
+                            <div class="form-outline">
+                                <asp:Literal ID="Literal3" runat="server">Marca:</asp:Literal>
+                                <asp:DropDownList ID="ddlChangeMarca" runat="server" DataTextField="MARCA" DataValueField="chiave" DataSourceID="sdsMARCHE" AutoPostBack="True">
+                                    <asp:ListItem Text="" disabled="disabled" />
+                                </asp:DropDownList>
+                                <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MARCHE_GetAllMarche" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                             </div>
 
                             <!-- Bottone per mandare il query SQL per aggiornare la tabella -->

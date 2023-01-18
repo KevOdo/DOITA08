@@ -51,7 +51,7 @@ public partial class Login : System.Web.UI.Page
             ClientScript.RegisterStartupScript(this.GetType(), "ERRORE", "alert('Non ti conosco');", true);
             return;
         }
-        Session["usrType"] = DT.Rows[0][1].ToString();
+        Session["usrType"] = DT.Rows[0][0].ToString();
         Response.Redirect("Home.aspx");
 
     }

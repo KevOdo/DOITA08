@@ -60,7 +60,7 @@ public partial class _ModMarca : System.Web.UI.Page
         DA.SelectCommand = cmd;
         DA.Fill(DT);
         
-        if(DT.Rows.Count != 0)
+        if(DT.Rows.Count != 0 && chiave != DT.Rows[0][0].ToString())
         {
             return;
         }
