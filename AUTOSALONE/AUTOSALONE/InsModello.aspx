@@ -4,8 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container py-5">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 col-xl-6">
                 <div class="card">
                     <div class="card-header">
                         <h5>Modello Nuovo</h5>
@@ -56,24 +56,22 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- GridView per vedere tutti i modelli di una certa marca-->
-    <section>
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
+            <!-- GridView per vedere tutti i modelli di una certa marca-->
+            <div class="col-lg-6 col-xl-6">
                 <!-- DropDownList per selezionare la marca di cui vedere i modelli-->
                 <div>
                     <asp:DropDownList ID="ddlSelectmarca" runat="server" DataTextField="MARCA" DataValueField="chiave" DataSourceID="sdsMARCHE" AutoPostBack="True"></asp:DropDownList>
                 </div>
-                <!-- GridView popolato in base alla marca -->
-                <asp:GridView ID="GridView1" runat="server" DataSourceID="sdsMODELLI" CssClass="table table-striped table-sm"></asp:GridView>
-                <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetModelloByMarca" SelectCommandType="StoredProcedure">
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="ddlSelectmarca" PropertyName="SelectedValue" DefaultValue="1" Name="MARCA" Type="Int32"></asp:ControlParameter>
-                    </SelectParameters>
-                </asp:SqlDataSource>
+                <div class="scroll">
+                    <!-- GridView popolato in base alla marca -->
+                    <asp:GridView ID="GridView1" runat="server" DataSourceID="sdsMODELLI" CssClass="table table-striped table-sm"></asp:GridView>
+                    <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetModelloByMarca" SelectCommandType="StoredProcedure">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="ddlSelectmarca" PropertyName="SelectedValue" DefaultValue="1" Name="MARCA" Type="Int32"></asp:ControlParameter>
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                </div>
             </div>
         </div>
     </section>

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container py-5">
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
+            <div class="col-lg-6 col-xl-6">
                 <div class="card">
                     <div class="card-header">
                         <h5>Marca Nuova</h5>
@@ -20,18 +20,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- GridView per vedere tutte le marche nel database -->
-    <section>
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsMARCHE" CssClass="table table-striped">
-                    <Columns>
-                        <asp:BoundField DataField="MARCA" HeaderText="MARCA" SortExpression="MARCA"></asp:BoundField>
-                    </Columns>
-                </asp:GridView>
+            <!-- GridView per vedere tutte le marche nel database -->
+            <div class="col-lg-6 col-xl-6">
+                <div class="scroll">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsMARCHE" CssClass="table table-striped">
+                        <Columns>
+                            <asp:BoundField DataField="MARCA" HeaderText="MARCA" SortExpression="MARCA"></asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
                 <asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MARCHE_GetAllMarche" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </div>
         </div>

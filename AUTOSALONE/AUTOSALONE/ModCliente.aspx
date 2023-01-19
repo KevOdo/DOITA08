@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="container py-5">
         <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-8">
+            <div class="col-lg-6 col-xl-6">
                 <div class="card">
                     <div class="card-header">
                         <h5>Modifica Cliente</h5>

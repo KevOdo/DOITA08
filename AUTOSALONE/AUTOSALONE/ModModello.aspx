@@ -45,7 +45,7 @@
 
                             <!-- Gridview che mostra tutte le varianti del modello selezionato -->
                             <div class="py-2">
-                                <asp:GridView ID="gridModello" runat="server" AutoGenerateColumns="false" DataSourceID="sdsMODELLI2" DataKeyNames="chiave" CssClass="table table-striped table-sm">
+                                <asp:GridView OnSelectedIndexChanged="btnModifica_Click" ID="gridModello" runat="server" AutoGenerateColumns="false" DataSourceID="sdsMODELLI2" DataKeyNames="chiave" CssClass="table table-striped table-sm">
                                     <Columns>
                                         <asp:CommandField ShowSelectButton="true" HeaderText="Seleziona:" />
                                         <asp:BoundField DataField="MODELLO" HeaderText="MODELLO" SortExpression="MODELLO" />
@@ -60,11 +60,6 @@
                                         <asp:ControlParameter ControlID="ddlModModello" PropertyName="SelectedValue" DefaultValue="" Name="MODELLO"></asp:ControlParameter>
                                     </SelectParameters>
                                 </asp:SqlDataSource>
-                            </div>
-
-                            <!-- Dropdown per selezionare la chiave del modello specifico da modificare -->
-                            <div class="form-outline">
-                                <asp:Button ID="btnModifica" runat="server" Text="Modifica" OnClick="btnModifica_Click" CssClass="my-1 btn btn-primary" />
                             </div>
                         </section>
 

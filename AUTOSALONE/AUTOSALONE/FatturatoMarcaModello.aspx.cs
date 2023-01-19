@@ -5,14 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class _FatturatoAnnuo : System.Web.UI.Page
+public partial class _FatturatoMarcaModello : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void btntest_Click(object sender, EventArgs e)
     {
 
     }
