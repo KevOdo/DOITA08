@@ -1,97 +1,76 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Autosalone.master" AutoEventWireup="true" CodeFile="InsNuovoCliente.aspx.cs" Inherits="_InsNuovoCliente" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="InsNuovoCliente.aspx.cs" Inherits="_InsNuovoCliente" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <!-- Inserimento Dati del Cliente -->
-    <section class="container py-5">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Dati Cliente</h4>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="heritagepanda-desktop.png" type="image/x-icon" href="~/favicon.ico" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <section class="container py-1">
+            <h5>Inserisci dati:</h5>
+            <!-- Nome e Cognome -->
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-outline">
+                        <label for="" class="form-label">Nome</label>
+                        <asp:TextBox ID="txtNome" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
-                    <div class="card-body">
+                </div>
 
-                        <!-- Nome e Cognome -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-outline">
-                                    <label for="" class="form-label">Nome</label>
-                                    <asp:TextBox ID="txtNome" runat="server" CssClass="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-outline">
-                                    <label class="form-label" for="">Cognome</label>
-                                    <asp:TextBox ID="txtCognome" runat="server" CssClass="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Ragione Sociale -->
-                        <div class="form-outline">
-                            <label class="form-label" for="">Ragione Sociale</label>
-                            <asp:TextBox ID="txtRS" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-
-                        <!-- Indirizzo -->
-                        <div class="form-outline">
-                            <label for="" class="form-label">Indirizzo</label>
-                            <asp:TextBox ID="txtIndirizzo" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-
-                        <!-- Cirra', Provincia e CAP -->
-                        <div class="row">
-                            <div class="col-md-8 col-sm-8">
-                                <div class="form-outline">
-                                    <label for="" class="form-label">Citta'</label>
-                                    <asp:TextBox ID="txtCitta" runat="server" CssClass="form-control"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-2">
-                                <div class="form-outline">
-                                    <label for="" class="form-label">Provincia</label>
-                                    <asp:TextBox ID="txtProvincia" runat="server" CssClass="form-control" MaxLength="2"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-2">
-                                <div class="form-outline">
-                                    <label for="" class="form-label">CAP</label>
-                                    <asp:TextBox ID="txtCAP" runat="server" CssClass="form-control" TextMode="Number" max="99999"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bottone per inserire i dati nel database -->
-                        <div class="form-outline py-1">
-                            <asp:Button ID="btnRegistra" runat="server" Text="Salva Dati" CssClass="btn btn-primary" OnClick="btnRegistra_Click" />
-                        </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-outline">
+                        <label class="form-label" for="">Cognome</label>
+                        <asp:TextBox ID="txtCognome" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- GridView per vedere tutti i clienti nel database -->
-    <section>
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="sdsCLIENTI" CssClass="table table-striped table-sm">
-                    <Columns>
-                        <asp:BoundField DataField="COGNOME" HeaderText="COGNOME" SortExpression="COGNOME"></asp:BoundField>
-                        <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME"></asp:BoundField>
-                        <asp:BoundField DataField="RAGIONE_SOCIALE" HeaderText="RAGIONE_SOCIALE" SortExpression="RAGIONE_SOCIALE"></asp:BoundField>
-                        <asp:BoundField DataField="INDIRIZZO" HeaderText="INDIRIZZO" SortExpression="INDIRIZZO"></asp:BoundField>
-                        <asp:BoundField DataField="CITTA" HeaderText="CITTA" SortExpression="CITTA"></asp:BoundField>
-                        <asp:BoundField DataField="PROVINCIA" HeaderText="PROVINCIA" SortExpression="PROVINCIA"></asp:BoundField>
-                        <asp:BoundField DataField="CAP" HeaderText="CAP" SortExpression="CAP"></asp:BoundField>
-                    </Columns>
-                </asp:GridView>
-                <asp:SqlDataSource runat="server" ID="sdsCLIENTI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="CLIENTI_GetAllClienti" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+            <!-- Ragione Sociale -->
+            <div class="form-outline">
+                <label class="form-label" for="">Ragione Sociale</label>
+                <asp:TextBox ID="txtRS" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
-        </div>
-    </section>
-</asp:Content>
+
+            <!-- Indirizzo -->
+            <div class="form-outline">
+                <label for="" class="form-label">Indirizzo</label>
+                <asp:TextBox ID="txtIndirizzo" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+
+            <!-- Cirra', Provincia e CAP -->
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <div class="form-outline">
+                        <label for="" class="form-label">Citta'</label>
+                        <asp:TextBox ID="txtCitta" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <div class="form-outline">
+                        <label for="" class="form-label">Provincia</label>
+                        <asp:TextBox ID="txtProvincia" runat="server" CssClass="form-control" MaxLength="2"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <div class="form-outline">
+                        <label for="" class="form-label">CAP</label>
+                        <asp:TextBox ID="txtCAP" runat="server" CssClass="form-control" TextMode="Number" max="99999"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottone per inserire i dati nel database -->
+            <div class="form-outline py-1 d-flex justify-content-center">
+                <asp:Button ID="btnRegistra" runat="server" Text="Salva Dati" CssClass="btn btn-primary" OnClick="btnRegistra_Click" />
+            </div>
+        </section>
+    </form>
+</body>
+</html>
 

@@ -70,4 +70,33 @@ input[type=number] {
 .scroll {
     overflow-y: scroll;
     overflow-x: scroll;
+    max-height: 450px;
+}
+
+.top {
+    top: 0;
+}
+
+.seth{
+    height: 450px;
+}
+
+
+.Background {
+    background-color: Black;
+    filter: alpha(opacity=30);
+    opacity: 0.8;
+}
+
+.MyButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
 }

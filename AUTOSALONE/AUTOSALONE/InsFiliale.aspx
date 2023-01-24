@@ -3,15 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <section class="container py-5">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Inserisci Filiale</h5>
-                    </div>
-                    <div class="card-body">
+    <section class="container">
 
+        <!-- Page Title -->
+        <div class="display-4 py-4 d-flex justify-content-center">
+            Inserisci Filiale
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Inserisci dati:</h5>
                         <div class="form-outline">
                             <label for="" class="form-label">Nome Filiale:</label>
                             <asp:TextBox ID="txtNome" runat="server" CssClass="form-control"></asp:TextBox>
@@ -68,28 +71,28 @@
                     </div>
                 </div>
             </div>
+            <!-- GridView per vedere tutte le filiali nel database -->
+            <div class="col-lg-6 col-xl-6">
+                <div class="scroll">
+                    <asp:GridView ID="grdFiliali" runat="server" AutoGenerateColumns="False" DataKeyNames="chiave" DataSourceID="sdsFILIALI" CssClass="table">
+                        <Columns>
+                            <asp:BoundField DataField="NOMEFILIALE" HeaderText="NOMEFILIALE" SortExpression="NOMEFILIALE"></asp:BoundField>
+                            <asp:BoundField DataField="INDIRIZZO" HeaderText="INDIRIZZO" SortExpression="INDIRIZZO"></asp:BoundField>
+                            <asp:BoundField DataField="CITTA" HeaderText="CITTA" SortExpression="CITTA"></asp:BoundField>
+                            <asp:BoundField DataField="PROVINCIA" HeaderText="PROVINCIA" SortExpression="PROVINCIA"></asp:BoundField>
+                            <asp:BoundField DataField="CAP" HeaderText="CAP" SortExpression="CAP"></asp:BoundField>
+                            <asp:BoundField DataField="TELEFONO" HeaderText="TELEFONO" SortExpression="TELEFONO"></asp:BoundField>
+                            <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL"></asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
+                <asp:SqlDataSource runat="server" ID="sdsFILIALI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="FILIALI_GetAllFiliali" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+            </div>
+
         </div>
     </section>
 
-    <!-- GridView per vedere tutte le filiali nel database -->
-    <section>
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
-                <asp:GridView ID="grdFiliali" runat="server" AutoGenerateColumns="False" DataKeyNames="chiave" DataSourceID="sdsFILIALI" CssClass="table">
-                    <Columns>
-                        <asp:BoundField DataField="NOMEFILIALE" HeaderText="NOMEFILIALE" SortExpression="NOMEFILIALE"></asp:BoundField>
-                        <asp:BoundField DataField="INDIRIZZO" HeaderText="INDIRIZZO" SortExpression="INDIRIZZO"></asp:BoundField>
-                        <asp:BoundField DataField="CITTA" HeaderText="CITTA" SortExpression="CITTA"></asp:BoundField>
-                        <asp:BoundField DataField="PROVINCIA" HeaderText="PROVINCIA" SortExpression="PROVINCIA"></asp:BoundField>
-                        <asp:BoundField DataField="CAP" HeaderText="CAP" SortExpression="CAP"></asp:BoundField>
-                        <asp:BoundField DataField="TELEFONO" HeaderText="TELEFONO" SortExpression="TELEFONO"></asp:BoundField>
-                        <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL"></asp:BoundField>
-                    </Columns>
-                </asp:GridView>
-                <asp:SqlDataSource runat="server" ID="sdsFILIALI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="FILIALI_GetAllFiliali" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
-            </div>
-        </div>
-    </section>
+
 
 </asp:Content>
 

@@ -3,14 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <section class="container py-5">
+    <section class="container">
+
+        <!-- Page Title -->
+        <div class="display-4 py-4 d-flex justify-content-center">
+            Inserisci Auto
+        </div>
+
         <div class="row d-flex justify-content-center">
             <div class="col-lg-6 col-xl-6">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Auto Nuova</h5>
-                    </div>
                     <div class="card-body">
+                        <h5>Inserisci dati:</h5>
                         <!-- Seleziona marca e modello -->
                         <div class="row">
                             <!-- Seleziona marca dell'auto da aggiungere -->
@@ -25,10 +29,8 @@
                             <div class="col-lg-6">
                                 <div class="form-outline">
                                     <asp:Literal ID="Literal2" runat="server">Modello:</asp:Literal>
-                                    <asp:DropDownList ID="ddlModello" runat="server" DataTextField="MODELLO" DataValueField="chiave" DataSourceID="sdsMODELLI"></asp:DropDownList>
-                                    <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="select *
-                                            from MODELLI
-                                            where chiaveMARCA=@MARCA">
+                                    <asp:DropDownList ID="ddlModello" runat="server" DataTextField="MODELLO" DataValueField="MODELLO" DataSourceID="sdsMODELLI" AutoPostBack="True" OnDataBound="ddlModello_SelectedIndexChanged"></asp:DropDownList>
+                                    <asp:SqlDataSource runat="server" ID="sdsMODELLI" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetDistinctModelloByMarca" SelectCommandType="StoredProcedure">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="ddlMarca" PropertyName="SelectedValue" Name="MARCA"></asp:ControlParameter>
                                         </SelectParameters>
@@ -36,6 +38,23 @@
                                 </div>
                             </div>
                         </div>
+
+                        <asp:GridView ID="grdModelli" runat="server" DataSourceID="sdsMODS" AutoGenerateColumns="false" DataKeyNames="chiave" CssClass="table table-striped table-sm">
+                            <Columns>
+                                <asp:CommandField ShowSelectButton="true" HeaderText="Seleziona:" />
+                                <asp:BoundField DataField="MODELLO" HeaderText="MODELLO" SortExpression="MODELLO" />
+                                <asp:BoundField DataField="ALIMENTAZIONE" HeaderText="ALIMENTAZIONE" SortExpression="ALIMENTAZIONE" />
+                                <asp:BoundField DataField="CAMBIO" HeaderText="CAMBIO" SortExpression="CAMBIO" />
+                                <asp:BoundField DataField="MOTORIZZAZIONE" HeaderText="MOTORIZZAZIONE" SortExpression="MOTORIZZAZIONE" />
+                            </Columns>
+                            <SelectedRowStyle BackColor="#2c98e0" />
+                        </asp:GridView>
+                        <asp:SqlDataSource runat="server" ID="sdsMODS" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MODELLI_GetModelloByName" SelectCommandType="StoredProcedure">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="ddlModello" PropertyName="SelectedValue" Name="MODELLO" Type="String"></asp:ControlParameter>
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+
                         <!-- Campi per l'inserimento dei dati dell'Auto -->
                         <div class="row">
                             <!-- Anno -->

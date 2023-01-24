@@ -39,8 +39,7 @@ public partial class Login : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@usr", usr);
         cmd.Parameters.AddWithValue("@pwd", pwd);
 
-        DA.SelectCommand = cmd;
-        
+        DA.SelectCommand = cmd;        
 
         conn.Open();
         DA.Fill(DT);
@@ -51,6 +50,7 @@ public partial class Login : System.Web.UI.Page
             ClientScript.RegisterStartupScript(this.GetType(), "ERRORE", "alert('Non ti conosco');", true);
             return;
         }
+
         Session["usrType"] = DT.Rows[0][0].ToString();
         Response.Redirect("Home.aspx");
 

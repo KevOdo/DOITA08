@@ -21,6 +21,6 @@ public partial class _Fatturati : System.Web.UI.Page
     {
         DropDownList ddl = (DropDownList)sender;
         ddl.Items.Clear();
-        ddl.Items.Insert(0, new ListItem("Any", "0"));
+        ddl.Items.Insert(0, new ListItem("", "0"));
     }
 }

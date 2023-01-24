@@ -3,14 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <section class="container py-5">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
+    <section class="container">
+
+        <!-- Page Title -->
+        <div class="display-4 py-4 d-flex justify-content-center">
+            Inserisci Venditore
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 col-xl-6">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Inserisci Venditore</h5>
-                    </div>
                     <div class="card-body">
+                        <h5>Inserisci dati:</h5>
                         <!-- Nome e Cognome -->
                         <div class="row">
                             <div class="col-md-6">
@@ -42,20 +46,17 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- GridView per vedere tutti i venditori nel database -->
-    <section>
-        <div class="row d-flex justify-content-center align-items-center">
+            <!-- GridView per vedere tutti i venditori nel database -->
             <div class="col-lg-8 col-xl-6">
-                <asp:GridView ID="gridVenditori" runat="server" AutoGenerateColumns="False" DataSourceID="sdsVenditori" CssClass="table">
-                    <Columns>
-                        <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME"></asp:BoundField>
-                        <asp:BoundField DataField="COGNOME" HeaderText="COGNOME" SortExpression="COGNOME"></asp:BoundField>
-                        <asp:BoundField DataField="FILIALE" HeaderText="FILIALE" SortExpression="FILIALE"></asp:BoundField>
-                    </Columns>
-                </asp:GridView>
+                <div class="scroll">
+                    <asp:GridView ID="gridVenditori" runat="server" AutoGenerateColumns="False" DataSourceID="sdsVenditori" CssClass="table">
+                        <Columns>
+                            <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME"></asp:BoundField>
+                            <asp:BoundField DataField="COGNOME" HeaderText="COGNOME" SortExpression="COGNOME"></asp:BoundField>
+                            <asp:BoundField DataField="FILIALE" HeaderText="FILIALE" SortExpression="FILIALE"></asp:BoundField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
                 <asp:SqlDataSource runat="server" ID="sdsVenditori" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="VENDITORI_GetAllVenditori" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </div>
         </div>

@@ -3,16 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <section class="container py-5">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-lg-8 col-xl-6">
+    <section class="container">
+
+        <!-- Page Title -->
+        <div class="display-4 py-4 d-flex justify-content-center">
+            Modifica Marca
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 col-xl-6 top">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Modifica Marca</h5>
-                    </div>
                     <div class="card-body">
+                        <h5>Seleziona marca:</h5>
                         <!-- GridView per selezionare la marca da modificare -->
-                        <asp:GridView ID="gridMarche" runat="server" AutoGenerateColumns="false" DataKeyNames="chiave" DataSourceID="sdsMARCHE" CssClass="table table-striped">
+                        <asp:GridView ID="gridMarche" runat="server" AutoGenerateColumns="false" DataKeyNames="chiave" DataSourceID="sdsMARCHE" CssClass="table table-striped" OnSelectedIndexChanged="btnModifica_Click">
                             <Columns>
                                 <asp:CommandField ShowSelectButton="true" HeaderText="Seleziona:" />
                                 <asp:BoundField DataField="MARCA" HeaderText="MARCA" SortExpression="MARCA" />
@@ -21,12 +25,13 @@
                             <SelectedRowStyle BackColor="#2c98e0" />
                         </asp:GridView>
                         <asp:SqlDataSource runat="server" ID="sdsMARCHE" ConnectionString="<%$ ConnectionStrings:AUTOSALONIConnectionString %>" SelectCommand="MARCHE_GetAllMarche" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
-
-                        <!-- Bottone per confermare marca da modificare -->
-                        <div class="py-2">
-                            <asp:Button CssClass="my-1 btn btn-primary" ID="btnModifica" runat="server" Text="Modifica" OnClick="btnModifica_Click" />
-                        </div>
-
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Modifica dati:</h5>
                         <!-- TextBox per marca e nazione. Popolati una volta selezionata la marca da modificare -->
                         <div class="row">
                             <div class="col-xl-6">

@@ -83,7 +83,7 @@
                                 <a class="dropModello nav-link">Gestione Clienti</a>
                                 <ul class="dropdown-content">
                                     <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="InsNuovoCliente.aspx">Inserisci Cliente</a>
+                                        <a class="dropdown-item nav-link" href="InsClienteMain.aspx">Inserisci Cliente</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item nav-link" href="ModCliente.aspx">Modifica Cliente</a>
@@ -96,10 +96,10 @@
                                 <a class="dropModello nav-link">Gestione Filiali</a>
                                 <ul class="dropdown-content">
                                     <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="InsFiliale.aspx">Aggiungi Filiale</a>
+                                        <a class="dropdown-item nav-link" href="InsFiliale.aspx">Inserisci Filiale</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="#">Modifica Filiale</a>
+                                        <a class="dropdown-item nav-link" href="ModFiliale.aspx">Modifica Filiale</a>
                                     </li>
                                 </ul>
                             </li>
@@ -109,10 +109,10 @@
                                 <a class="dropModello nav-link">Gestione Venditori</a>
                                 <ul class="dropdown-content">
                                     <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="InsVenditore.aspx">Aggiungi Venditore</a>
+                                        <a class="dropdown-item nav-link" href="InsVenditore.aspx">Inserisci Venditore</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="dropdown-item nav-link" href="#">Modifica Venditore</a>
+                                        <a class="dropdown-item nav-link" href="ModVenditore.aspx">Modifica Venditore</a>
                                     </li>
                                 </ul>
                             </li>
@@ -150,6 +150,10 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="ListaAuto.aspx">Lista Auto</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="InsTransazione.aspx">Inserisci Transazione</a>
                             </li>
 
                         </ul>

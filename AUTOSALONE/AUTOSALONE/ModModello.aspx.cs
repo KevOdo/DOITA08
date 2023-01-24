@@ -73,7 +73,7 @@ public partial class _ModModello : System.Web.UI.Page
         cmd.ExecuteNonQuery();
         conn.Close();
 
-        //gridModello.DataBind();
+        gridModello.DataBind();
 
     }
 

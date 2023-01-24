@@ -26,7 +26,7 @@ public partial class _InsAuto : System.Web.UI.Page
         SqlConnection conn = new SqlConnection();
         SqlCommand cmdAuto = new SqlCommand();
 
-        string chiaveModello = ddlModello.SelectedValue.ToString();
+        string chiaveModello = grdModelli.SelectedValue.ToString();
         string anno = txtAnno.Text.ToString();
         string targa = txtTarga.Text.Trim();
         string KM = txtKM.Text.Trim();
@@ -49,5 +49,10 @@ public partial class _InsAuto : System.Web.UI.Page
         conn.Close();
 
         DataBind();
+    }
+
+    protected void ddlModello_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        grdModelli.DataBind();
     }
 }

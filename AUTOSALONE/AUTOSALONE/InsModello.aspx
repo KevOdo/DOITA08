@@ -3,14 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <section class="container py-5">
+    <section class="container">
+
+        <!-- Page Title -->
+        <div class="display-4 py-4 d-flex justify-content-center">
+            Inserisci Modello
+        </div>
+
         <div class="row d-flex justify-content-center">
             <div class="col-lg-6 col-xl-6">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Modello Nuovo</h5>
-                    </div>
                     <div class="card-body">
+                        <h5>Inserisci dati:</h5>
                         <!-- Seleziona Marca del modello da aggiungere -->
                         <div class="form-outline">
                             <asp:Literal ID="lit11" runat="server">Seleziona marca auto:</asp:Literal>

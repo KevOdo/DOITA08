@@ -3,15 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <section class="container py-5">
-        <div class="row d-flex justify-content-center align-items-center">
+    <section class="container">
+
+        <!-- Page Title -->
+        <div class="display-4 py-4 d-flex justify-content-center">
+            Inserisci Marca
+        </div>
+
+        <div class="row d-flex justify-content-center">
             <div class="col-lg-6 col-xl-6">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Marca Nuova</h5>
-                    </div>
                     <!-- Inserimento di Marca nuova -->
                     <div class="card-body">
+                        <h5>Inserisci dati:</h5>
                         <div class="form-outline">
                             <asp:Literal ID="lit1" runat="server">Inserisci marca nuova:</asp:Literal>
                             <asp:TextBox ID="txtMarca" runat="server" CssClass="form-control"></asp:TextBox>
