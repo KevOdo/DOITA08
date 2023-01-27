@@ -52,28 +52,20 @@ public partial class _ModFiliale : System.Web.UI.Page
         string provincia = txtProvincia.Text.Trim();
         string cap = txtCAP.Text.Trim();
         string telefono = txtTelefono.Text.Trim();
-        string email = txtEmail.Text.Trim();        
+        string email = txtEmail.Text.Trim();
 
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        DATABASE DB = new DATABASE();
 
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "FILIALI_ModificaFiliale";
+        DB.cmd.Parameters.AddWithValue("@chiave", chiave);
+        DB.cmd.Parameters.AddWithValue("@nome",nome);
+        DB.cmd.Parameters.AddWithValue("@indirizzo", indirizzo);
+        DB.cmd.Parameters.AddWithValue("@citta", citta);
+        DB.cmd.Parameters.AddWithValue("@provincia", provincia);
+        DB.cmd.Parameters.AddWithValue("@cap", cap);
+        DB.cmd.Parameters.AddWithValue("@telefono", telefono);
+        DB.cmd.Parameters.AddWithValue("@email", email);
 
-        cmd.Parameters.AddWithValue("@chiave", chiave);
-        cmd.Parameters.AddWithValue("@nome",nome);
-        cmd.Parameters.AddWithValue("@indirizzo", indirizzo);
-        cmd.Parameters.AddWithValue("@citta", citta);
-        cmd.Parameters.AddWithValue("@provincia", provincia);
-        cmd.Parameters.AddWithValue("@cap", cap);
-        cmd.Parameters.AddWithValue("@telefono", telefono);
-        cmd.Parameters.AddWithValue("@email", email);
-
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
+        DB.EseguiSPNonRead("FILIALI_ModificaFiliale");
 
         DataBind();
 

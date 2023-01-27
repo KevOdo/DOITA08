@@ -20,20 +20,9 @@ public partial class _ModModello : System.Web.UI.Page
             return;
         }
 
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        DataTable DT = new DataTable();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
-        string chiave = gridModello.SelectedValue.ToString();
-
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "MODELLI_GetRecordByKey";
-        cmd.Parameters.AddWithValue("@chiave", chiave);
-
-        DA.SelectCommand = cmd;
-        DA.Fill(DT);
+        MODELLI MOD = new MODELLI();
+        MOD.chiave = int.Parse(gridModello.SelectedValue.ToString());
+        DataTable DT = MOD.GetRecordByKey();
 
         txtModello.Text = DT.Rows[0][1].ToString();
         txtMotor.Text = DT.Rows[0][4].ToString();
@@ -47,34 +36,16 @@ public partial class _ModModello : System.Web.UI.Page
 
     protected void btnModello_Click(object sender, EventArgs e)
     {
-        string chiave = gridModello.SelectedValue.ToString();
-        string chiaveMarca = ddlChangeMarca.SelectedValue.ToString();
-        string modello = txtModello.Text.Trim();
-        string alimentazione = ddlAlimentazione.SelectedValue.ToString().Trim();
-        string cambio = ddlCambio.SelectedValue.ToString().Trim();
-        string motorizzazione = txtMotor.Text.Trim();
-
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "MODELLI_ModificaModello";
-
-        cmd.Parameters.AddWithValue("@chiave", chiave);
-        cmd.Parameters.AddWithValue("@chiaveMarca", chiaveMarca);
-        cmd.Parameters.AddWithValue("@modello", modello);
-        cmd.Parameters.AddWithValue("@alimentazione", alimentazione);
-        cmd.Parameters.AddWithValue("@cambio", cambio);
-        cmd.Parameters.AddWithValue("@motorizzazione", motorizzazione);
-
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
+        MODELLI MOD = new MODELLI();
+        MOD.chiave = int.Parse(gridModello.SelectedValue.ToString()); ;
+        MOD.chiaveMarca = int.Parse(ddlChangeMarca.SelectedValue.ToString()); ;
+        MOD.modello = txtModello.Text.Trim(); ;
+        MOD.alimentazione = ddlAlimentazione.SelectedValue.ToString().Trim(); ;
+        MOD.cambio = ddlCambio.SelectedValue.ToString().Trim(); ;
+        MOD.motorizzazione = txtMotor.Text.Trim();
+        MOD.ModificaModello();
 
         gridModello.DataBind();
-
     }
 
     protected void btnAggiorna_Click(object sender, EventArgs e)

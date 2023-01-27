@@ -22,28 +22,14 @@ public partial class _InsModello : System.Web.UI.Page
         }
 
         // gestione oggetti per la connessione
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmdModello = new SqlCommand();
+        MODELLI MOD = new MODELLI();
+        MOD.chiaveMarca = int.Parse(ddlMarca.SelectedValue.ToString()); ;
+        MOD.modello = txtModello.Text.Trim(); ;
+        MOD.alimentazione = ddlAlimentazione.SelectedValue.ToString(); ;
+        MOD.cambio = ddlCambio.SelectedValue.ToString(); ;
+        MOD.motorizzazione = txtMotor.Text.Trim(); ;
 
-        string marca = ddlMarca.SelectedValue.ToString();
-        string modello = txtModello.Text.Trim();
-        string alimentazione = ddlAlimentazione.SelectedValue.ToString();
-        string cambio = ddlCambio.SelectedValue.ToString();
-        string motor = txtMotor.Text.Trim();
-
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
-        cmdModello.Connection = conn;
-        cmdModello.CommandType = CommandType.StoredProcedure;
-        cmdModello.CommandText = "MODELLI_InsertModello";
-        cmdModello.Parameters.AddWithValue("@chiaveMarca", marca);
-        cmdModello.Parameters.AddWithValue("@modello", modello);
-        cmdModello.Parameters.AddWithValue("@alimentazione", alimentazione);
-        cmdModello.Parameters.AddWithValue("@cambio", cambio);
-        cmdModello.Parameters.AddWithValue("@motor", motor);
-
-        conn.Open();
-        cmdModello.ExecuteNonQuery();
-        conn.Close();
+        MOD.InsertModello();
 
         DataBind();
 

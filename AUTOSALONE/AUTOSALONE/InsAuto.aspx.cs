@@ -23,8 +23,7 @@ public partial class _InsAuto : System.Web.UI.Page
         }
 
         // gestione oggetti per la connessione
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmdAuto = new SqlCommand();
+        DATABASE DB = new DATABASE();
 
         string chiaveModello = grdModelli.SelectedValue.ToString();
         string anno = txtAnno.Text.ToString();
@@ -33,20 +32,13 @@ public partial class _InsAuto : System.Web.UI.Page
         string colore = txtColore.Text.Trim();
         string prezzo = txtPrezzo.Text.Trim();
 
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
-        cmdAuto.Connection = conn;
-        cmdAuto.CommandType = CommandType.StoredProcedure;
-        cmdAuto.CommandText = "AUTOMOBILI_InsertAuto";
-        cmdAuto.Parameters.AddWithValue("@chiaveModello", chiaveModello);
-        cmdAuto.Parameters.AddWithValue("@anno", anno);
-        cmdAuto.Parameters.AddWithValue("@targa", targa);
-        cmdAuto.Parameters.AddWithValue("@KM", KM);
-        cmdAuto.Parameters.AddWithValue("@colore", colore);
-        cmdAuto.Parameters.AddWithValue("@prezzo", prezzo);
-
-        conn.Open();
-        cmdAuto.ExecuteNonQuery();
-        conn.Close();
+        DB.cmd.Parameters.AddWithValue("@chiaveModello", chiaveModello);
+        DB.cmd.Parameters.AddWithValue("@anno", anno);
+        DB.cmd.Parameters.AddWithValue("@targa", targa);
+        DB.cmd.Parameters.AddWithValue("@KM", KM);
+        DB.cmd.Parameters.AddWithValue("@colore", colore);
+        DB.cmd.Parameters.AddWithValue("@prezzo", prezzo);
+        DB.EseguiSPNonRead("AUTOMOBILI_InsertAuto");
 
         DataBind();
     }

@@ -18,19 +18,9 @@ public partial class Default2 : System.Web.UI.Page
     {
         string chiave = GridVend.SelectedValue.ToString();
 
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        DataTable DT = new DataTable();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
-        
-        cmd.Connection = conn;
-        cmd.CommandText = "VENDITORI_GetByKey";
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.Parameters.AddWithValue("@chiave", chiave);
-
-        DA.SelectCommand = cmd;
-        DA.Fill(DT);
+        DATABASE DB = new DATABASE();
+        DB.cmd.Parameters.AddWithValue("@chiave", chiave);
+        DataTable DT = DB.EseguiSPRead("VENDITORI_GetByKey");
 
         ddlfil.SelectedValue = DT.Rows[0][1].ToString();
         txtCognome.Text = DT.Rows[0][2].ToString();
@@ -51,24 +41,14 @@ public partial class Default2 : System.Web.UI.Page
             return;
         }
 
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        DataTable DT = new DataTable();
-        
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;        
-        cmd.CommandText = "VENDITORI_ModificaVenditore";
+        DATABASE DB = new DATABASE();
 
-        cmd.Parameters.AddWithValue("@nome", nome);
-        cmd.Parameters.AddWithValue("@cognome", cognome);
-        cmd.Parameters.AddWithValue("@chiave", chiave);
-        cmd.Parameters.AddWithValue("@chiaveFiliale", chiaveFiliale);
+        DB.cmd.Parameters.AddWithValue("@nome", nome);
+        DB.cmd.Parameters.AddWithValue("@cognome", cognome);
+        DB.cmd.Parameters.AddWithValue("@chiave", chiave);
+        DB.cmd.Parameters.AddWithValue("@chiaveFiliale", chiaveFiliale);
 
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
+        DB.EseguiSPNonRead("VENDITORI_ModificaVenditore");
 
         DataBind();
     }

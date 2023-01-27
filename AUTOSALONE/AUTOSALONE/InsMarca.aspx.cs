@@ -22,19 +22,9 @@ public partial class _InsMarca : System.Web.UI.Page
         }
 
         // database operations
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmdMarca = new SqlCommand();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true";
-        
-        cmdMarca.Connection = conn;
-        cmdMarca.CommandType = CommandType.StoredProcedure;
-        cmdMarca.CommandText = "MARCHE_InsertMarca";
-        cmdMarca.Parameters.AddWithValue("@marca", txtMarca.Text.Trim());
-
-        conn.Open();
-        cmdMarca.ExecuteNonQuery();
-        conn.Close();
-
+        DATABASE DB = new DATABASE();
+        DB.cmd.Parameters.AddWithValue("@marca", txtMarca.Text.Trim());
+        DB.EseguiSPNonRead("MARCHE_InsertMarca");
         DataBind();
 
     }

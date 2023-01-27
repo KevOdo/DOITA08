@@ -20,21 +20,12 @@ public partial class _InsVenditore : System.Web.UI.Page
         string cognome = txtCognome.Text.Trim();
         string chiaveFiliale = ddlFiliale.SelectedValue.ToString();
 
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
+        DATABASE DB = new DATABASE();
+        DB.cmd.Parameters.AddWithValue("@chiaveFiliale", chiaveFiliale);
+        DB.cmd.Parameters.AddWithValue("@cognome", cognome);
+        DB.cmd.Parameters.AddWithValue("@nome", nome);
 
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
-        cmd.Connection = conn;
-
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "VENDITORI_InsertVenditore";
-        cmd.Parameters.AddWithValue("@chiaveFiliale", chiaveFiliale);
-        cmd.Parameters.AddWithValue("@cognome", cognome);
-        cmd.Parameters.AddWithValue("@nome", nome);
-
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
+        DB.EseguiSPNonRead("VENDITORI_InsertVenditore");
 
         DataBind();
 

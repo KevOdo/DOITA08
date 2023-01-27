@@ -31,33 +31,18 @@ public partial class _InsTransazione : System.Web.UI.Page
 
     protected void btnSalva_Click(object sender, EventArgs e)
     {
-        string chiaveAuto = gridAuto.SelectedValue.ToString();
-        string chiaveCliente = gridClienti.SelectedValue.ToString();
-        string chiaveVenditore = GridVend.SelectedValue.ToString();
-        string data = txtData.Text;
-        string MP = txtMP.Text;
-        string AV = ddlAV.SelectedValue.ToString();
-        string prezzo = txtPrezzo.Text;
 
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        DataTable DT = new DataTable();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "TRANSAZIONI_InsertTransazione";
-        cmd.Parameters.AddWithValue("@chiaveAuto", chiaveAuto);
-        cmd.Parameters.AddWithValue("@chiaveCliente", chiaveCliente);
-        cmd.Parameters.AddWithValue("@chiaveVenditore", chiaveVenditore);
-        cmd.Parameters.AddWithValue("@data", data);
-        cmd.Parameters.AddWithValue("@MP", MP);
-        cmd.Parameters.AddWithValue("@AV", AV);
-        cmd.Parameters.AddWithValue("@prezzo", prezzo);
+        TRANSAZIONI TR = new TRANSAZIONI();
+        TR.chiaveAutomobile = int.Parse(gridAuto.SelectedValue.ToString());
+        TR.chiaveCliente = int.Parse(gridClienti.SelectedValue.ToString());
+        TR.chiaveVenditore = int.Parse(GridVend.SelectedValue.ToString());
+        TR.dataTransazione = txtData.Text;
+        TR.metodoPagamento = txtMP.Text;
+        TR.acquistoVendita = ddlAV.SelectedValue.ToString();
+        TR.prezzo = int.Parse(txtPrezzo.Text);
+        TR.InsertTransazione();
 
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
+        DataBind();
 
     }
 }

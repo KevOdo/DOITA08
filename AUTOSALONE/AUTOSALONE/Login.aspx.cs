@@ -26,25 +26,16 @@ public partial class Login : System.Web.UI.Page
             return;
         }
 
-        // Controlla se l'user esiste nel database
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        DataTable DT = new DataTable();
+        // istanzio la classe utenti
+        UTENTI U = new UTENTI();
 
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "UTENTI_Login";
-        cmd.Parameters.AddWithValue("@usr", usr);
-        cmd.Parameters.AddWithValue("@pwd", pwd);
+        U.USR = USR.Text.Trim();
+        U.PWD = PWD.Text.Trim();    
 
-        DA.SelectCommand = cmd;        
+        // esegui login e salva response in un datatable
+        DataTable DT = U.Login();
 
-        conn.Open();
-        DA.Fill(DT);
-        conn.Close();
-
+        // verifico se user esiste nel database
         if (DT.Rows.Count == 0)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "ERRORE", "alert('Non ti conosco');", true);

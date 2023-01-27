@@ -30,20 +30,9 @@ public partial class _ModCliente : System.Web.UI.Page
             return;
         }
 
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        DataTable DT = new DataTable();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
-        string chiave = gridClienti.SelectedValue.ToString();
-
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "CLIENTI_GetRecordByKey";
-        cmd.Parameters.AddWithValue("@chiave", chiave);
-
-        DA.SelectCommand = cmd;
-        DA.Fill(DT);
+        CLIENTI CL = new CLIENTI();
+        CL.chiave = int.Parse(gridClienti.SelectedValue.ToString());
+        DataTable DT = CL.GetRecordByKey();
 
         txtCognomeMod.Text = DT.Rows[0][1].ToString();
         txtNomeMod.Text = DT.Rows[0][2].ToString();
@@ -56,38 +45,18 @@ public partial class _ModCliente : System.Web.UI.Page
 
     protected void btnRegistra_Click(object sender, EventArgs e)
     {
-        SqlConnection conn = new SqlConnection();
-        SqlCommand cmd = new SqlCommand();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        DataTable DT = new DataTable();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
+        CLIENTI CL = new CLIENTI();
 
-        string chiave = gridClienti.SelectedValue.ToString();
-        string cognome = txtCognomeMod.Text;
-        string nome = txtNomeMod.Text;
-        string rs = txtRSMod.Text;
-        string indirizzo = txtIndirizzoMod.Text;
-        string citta = txtCittaMod.Text;
-        string provincia = txtProvinciaMod.Text;
-        string cap = txtCAPMod.Text;
+        CL.chiave = int.Parse(gridClienti.SelectedValue.ToString());
+        CL.cognome = txtCognomeMod.Text;
+        CL.nome = txtNomeMod.Text;
+        CL.RS = txtRSMod.Text;
+        CL.indirizzo = txtIndirizzoMod.Text;
+        CL.citta = txtCittaMod.Text;
+        CL.provincia = txtProvinciaMod.Text;
+        CL.cap = txtCAPMod.Text;
 
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "CLIENTI_ModificaCliente";
-        cmd.Parameters.Clear();
-        cmd.Parameters.AddWithValue("@chiave", chiave);
-        cmd.Parameters.AddWithValue("@cognome", cognome);
-        cmd.Parameters.AddWithValue("@nome", nome);
-        cmd.Parameters.AddWithValue("@rs", rs);
-        cmd.Parameters.AddWithValue("@indirizzo", indirizzo);
-        cmd.Parameters.AddWithValue("@citta", citta);
-        cmd.Parameters.AddWithValue("@provincia", provincia);
-        cmd.Parameters.AddWithValue("@cap", cap);
-
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
-
+        CL.ModificaCliente();
 
         DataBind();
     }

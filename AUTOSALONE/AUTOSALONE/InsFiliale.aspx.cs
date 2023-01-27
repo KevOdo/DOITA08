@@ -24,24 +24,19 @@ public partial class _InsFiliale : System.Web.UI.Page
         string telefono = txtTelefono.Text.Trim();
         string email = txtEmail.Text.Trim();
 
+        DATABASE DB = new DATABASE();
         SqlConnection conn = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
 
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "FILIALI_InsertFiliale";
-        cmd.Parameters.AddWithValue("@nomefiliale",nome);
-        cmd.Parameters.AddWithValue("@indirizzo",indirizzo);
-        cmd.Parameters.AddWithValue("@citta",citta);
-        cmd.Parameters.AddWithValue("@provincia",provincia);
-        cmd.Parameters.AddWithValue("@cap",cap);
-        cmd.Parameters.AddWithValue("@telefono",telefono);
-        cmd.Parameters.AddWithValue("@email",email);
+        DB.cmd.Parameters.AddWithValue("@nomefiliale", nome);
+        DB.cmd.Parameters.AddWithValue("@indirizzo", indirizzo);
+        DB.cmd.Parameters.AddWithValue("@citta", citta);
+        DB.cmd.Parameters.AddWithValue("@provincia", provincia);
+        DB.cmd.Parameters.AddWithValue("@cap", cap);
+        DB.cmd.Parameters.AddWithValue("@telefono", telefono);
+        DB.cmd.Parameters.AddWithValue("@email", email);
 
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
+        DB.EseguiSPNonRead("FILIALI_InsertFiliale");
 
         DataBind();
     }

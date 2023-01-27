@@ -45,24 +45,16 @@ public partial class _InsNuovoCliente : System.Web.UI.Page
             }
         }
 
-        SqlConnection conn = new SqlConnection();
-        conn.ConnectionString = "Data Source=DESKTOP-QNAP4SN\\SQLEXPRESS;Initial Catalog=AUTOSALONI;Integrated Security=true;";
-        SqlCommand cmd = new SqlCommand();
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "CLIENTI_InsertCliente";
-        cmd.Parameters.AddWithValue("@cognome", cognome);
-        cmd.Parameters.AddWithValue("@nome", nome);
-        cmd.Parameters.AddWithValue("@RS", RS);
-        cmd.Parameters.AddWithValue("@indirizzo", indirizzo);
-        cmd.Parameters.AddWithValue("@citta", citta);
-        cmd.Parameters.AddWithValue("@provincia", provincia);
-        cmd.Parameters.AddWithValue("@CAP", CAP);
-
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
-
+        CLIENTI CL = new CLIENTI();
+        CL.cognome = cognome;
+        CL.nome = nome;
+        CL.RS = RS;
+        CL.indirizzo = indirizzo;
+        CL.citta = citta;
+        CL.provincia = provincia;
+        CL.cap = CAP;
+        CL.InsertCliente();
+;
         ClientScript.RegisterStartupScript(this.GetType(), "SUCCESS", "alert('Registrazione Cliente Completata');", true);
         DataBind();
         return;
