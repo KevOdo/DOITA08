@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="scripts/main.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <div class="topbar">
+                <div class="hamburger" onclick="toggleSide(), changeBurger(this)">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="scroll" id="scroll">
+            <div id="sidebar">
+                <ul>
+                    <li class="menu-element" onclick="toggle('submenu1')">ELEM
+                       
+                        <ul class="submenu" id="submenu1">
+                            <li class="menu-element">EL</li>
+                            <li class="menu-element">EL</li>
+                            <li class="menu-element">EL</li>
+                        </ul>
+                    </li>
+                    <li class="menu-element" onclick="toggle('submenu2')">ELEM
+                        <ul class="submenu" id="submenu2">
+                            <li class="menu-element">EL</li>
+                            <li class="menu-element">EL</li>
+                            <li class="menu-element">EL</li>
+                        </ul>
+                    </li>
+                    <li class="menu-element">ELEM                        
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
