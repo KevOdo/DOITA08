@@ -1,11 +1,17 @@
-﻿function toggle(id) {
-    const elem = document.getElementById(id)
+﻿function toggle(id, sender) {
+    const elem = document.getElementById(id);
     if (elem.style.display == "block") {
+        sender.style.transition = "all 0.2s ease 0.2s";
+        sender.style.height = "30px";
         elem.style.display = "none";
-        elem.style.height = "0";
+        sender.style.background = "";
     } else {
-        elem.style.display = "block";
-        elem.style.height = "100%";
+        sender.style.transition = "all 0.2s ease 0.2s";
+        sender.style.height = "175px";
+        setTimeout(function () {
+            elem.style.display = "block";
+        }, 200)
+        sender.style.background = "#444444";
     }
 }
 

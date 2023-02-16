@@ -18,9 +18,24 @@
     background-color: #727d96;
 }
 
-body {
+html, body, form {
     margin: 0;
     background-color: #f6f9ff;
+    height: 100%;
+}
+
+.box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.box .row.header {
+    flex: 0 1 auto;
+}
+
+.box .row.content {
+    flex: 1 1 auto;
 }
 
 ul {
@@ -37,11 +52,17 @@ ul {
     font-family: 'Montserrat', sans-serif;
     padding-top: 10px;
     margin-bottom: 5px;
+    height: 30px;
+
 }
 
 .menu-element:hover {
     background-color: #444444;
     cursor: pointer;
+}
+
+.toggle .menu-element {
+    background-color: #444444;
 }
 
 .submenu {
@@ -52,12 +73,11 @@ ul {
     font-family: 'Montserrat', sans-serif;
     position: relative;
     display: none;
-    transition: height 0.5s;
 }
 
 .scroll {
+    height: 100%;
     background-color: #333333;
-    height: 89vh;
     width: 250px;
     overflow-y: scroll;
     transition: width 0.5s;
