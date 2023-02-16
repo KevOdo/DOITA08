@@ -23,32 +23,14 @@ public partial class _Default : System.Web.UI.Page
         // salvo il tipo del file scelto leggendolo da file upload
         string tipo = flup1.PostedFile.ContentType;
 
-        SqlConnection conn = new SqlConnection();
-        conn.ConnectionString = @"Data Source=DESKTOP-QNAP4SN\SQLEXPRESS;Initial Catalog=IMGDB;Integrated Security=true";
-        SqlCommand cmd = new SqlCommand();
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.Text;
-        cmd.CommandText = "insert into DOCUMENTI values(@t,@d,@type)"; // y = type
-        cmd.Parameters.AddWithValue("@t", titolo);
-        cmd.Parameters.AddWithValue("@d", ImgData);
-        cmd.Parameters.AddWithValue("@type", tipo);
-        conn.Open();
-        cmd.ExecuteNonQuery();
-        conn.Close();
+        DOCUMENTI DOC = new DOCUMENTI();
+        DOC.Carica(ImgData, titolo, tipo);
     }
 
     protected void btnLeggi_Click(object sender, EventArgs e)
     {
-        SqlConnection conn = new SqlConnection();
-        conn.ConnectionString = @"Data Source=DESKTOP-QNAP4SN\SQLEXPRESS;Initial Catalog=IMGDB;Integrated Security=true";
-        SqlCommand cmd = new SqlCommand();
-        cmd.Connection = conn;
-        cmd.CommandType = CommandType.Text;
-        cmd.CommandText = "select * from DOCUMENTI";
-        DataTable DT = new DataTable();
-        SqlDataAdapter DA = new SqlDataAdapter();
-        DA.SelectCommand = cmd;
-        DA.Fill(DT);
+        DOCUMENTI DOC = new DOCUMENTI();
+        DataTable DT = DOC.Scarica();
 
         lit.Text = "";
         foreach (DataRow dr in DT.Rows)
