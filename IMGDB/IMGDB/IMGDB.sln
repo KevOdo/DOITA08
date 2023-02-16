@@ -21,6 +21,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "IMGDB", ".", "{BEE96BF7-F63
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "56622"
+		SlnRelativePath = "..\IMGDB\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
