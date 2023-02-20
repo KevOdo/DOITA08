@@ -9,6 +9,10 @@
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-lg-10 col-xl-10">
                     <h2 class="text-center">INSTABRO</h2>
+
+                    <div class="images">
+                        <asp:GridView ID="grdIMG" runat="server"></asp:GridView>
+                    </div>
                 </div>
             </div>
         </div>

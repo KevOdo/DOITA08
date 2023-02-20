@@ -15,7 +15,9 @@
     <form id="form1" runat="server" class="h-100 w-100">
         <div class="cont">
             <section class="sidebar">
-
+                <div class="menu-element">
+                    Home: <a class="glyphicon glyphicon-home"></a>
+                </div>
             </section>
 
             <section class="pageContent">
