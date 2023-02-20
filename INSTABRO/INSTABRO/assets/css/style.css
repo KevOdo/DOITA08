@@ -1,0 +1,22 @@
+﻿body {
+    height: 100vh;
+    background-color: #969696;
+    display: flex;
+}
+
+.sidebar {
+    width: 13vw;
+    height: 100%;
+    background-color: #333333;
+}
+
+.cont {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.pageContent {
+    flex-grow: 1;
+    margin-top: 25px;
+}
