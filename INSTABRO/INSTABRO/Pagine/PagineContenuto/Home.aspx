@@ -20,7 +20,7 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
                                 <asp:TextBox ID="txtSearch" runat="server" class="form-control" placeholder="Cerca per titolo, album o descrizione..."></asp:TextBox>
-                                <asp:Button ID="Button1" runat="server" Text="Search" class="btn btn-primary" OnClick="Button1_Click" />
+                                <asp:Button ID="Button1" runat="server" Text="Search" class="btn btn-primary sbtn" OnClick="Button1_Click" />
                             </div>
                         </div>
                         <div class="col-lg-2"></div>
@@ -31,29 +31,18 @@
                         <div runat="server" id="lit"></div>
                     </div>
 
-                    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
-                    </asp:ScriptManager>
+                    <div id="popup" class="Popup">
 
-                    <button style="display:none" id="btnHdn2" runat="server"></button>
-                    <!-- controller per popup dell'Immagine -->
-                    <cc1:ModalPopupExtender ID="mpExtender" runat="server" PopupControlID="pnlModifica" TargetControlID="btnHdn2"
-                        BackgroundCssClass="Background" BehaviorID="mpExtender_b" >
-                    </cc1:ModalPopupExtender>
+                        <!-- The Close Button -->
+                        <span class="close" onclick="closePopup()">&times;</span>
 
-                    <!-- Popup per visualizzare l'immagine -->
-                    <asp:Panel
-                        ID="pnlModifica"
-                        runat="server"
-                        CssClass="Popup"
-                        align="center"
-                        Style="display: none" OnLoad="pnlModifica_Load">
-                        <%--ci pensa lo script manager a renderlo visibile--%>
-                        <%--l'iframe è un contenitore che ha la possibilità di richiamare una pagina--%>
-                        <iframe style="width: 850px; height: 580px;" id="Iframe1" src="/Pagine/PaginePopup/Immagine.aspx" runat="server" visible="false" ></iframe>
-                        <br />
-                        <asp:Button ID="btnCloseMod" runat="server" Text="x" CssClass="usrCloseBtn" />
-                        <%--chiude il popup--%>
-                    </asp:Panel>
+                        <div id="imgTitle"></div>
+                        <!-- Modal Content (The Image) -->
+                        <img class="PopupImage" id="popupIMG">
+
+                        <!-- Modal Caption (Image Text) -->
+                        <div id="caption"></div>
+                    </div>
 
                 </div>
             </div>
@@ -61,10 +50,20 @@
     </section>
 
     <script>
-        function showPopup(chiave) {
-            PageMethods.setKey(chiave);
-            $find('mpExtender_b').Enabled = true;
-            $find('mpExtender_b').show();
+        function showPopup(chiave, titolo, desc) {
+            var popup = document.getElementById("popup");
+            var img = document.getElementById(chiave);
+            var popupIMG = document.getElementById("popupIMG");
+            var imgTitle = document.getElementById("imgTitle");
+            var caption = document.getElementById("caption");
+            popup.style.display = "block";
+            popupIMG.src = img.src;
+            imgTitle.innerText = titolo;
+            caption.innerText = desc;
+        }
+
+        function closePopup() {
+            popup.style.display = "none";
         }
     </script>
 

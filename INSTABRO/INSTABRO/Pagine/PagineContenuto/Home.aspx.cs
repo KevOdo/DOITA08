@@ -28,9 +28,11 @@ public partial class Home : System.Web.UI.Page
 
                 }
                 string chiave = dr["chiave"].ToString();
-                lit.InnerHtml += "<div class=col-lg-2>";
+                string descrizione = dr["descrizione"].ToString().Trim();
+                string titolo = dr["titolo"].ToString().Trim();
+                lit.InnerHtml += "<div class='col-lg-2'>";
                 //lit.InnerHtml += "<asp:ImageButton ID='ImageButton1' runat='server' CssClass='image' ImageUrl='/AsyncHandler.ashx?c=" + chiave + "' /> ";
-                lit.InnerHtml += "<img runat='server' onclick='showPopup(" + chiave+"); imgClick(" + chiave+");' alt='" + chiave + "' class='image' src='/AsyncHandler.ashx?c=" + chiave + "' />";
+                lit.InnerHtml += "<img id='" + chiave + "' onclick=\"showPopup(" + chiave + ",'" + titolo + "','" + descrizione + "')\" class='image' src='/AsyncHandler.ashx?c=" + chiave + "' />";
                 lit.InnerHtml += "</div>";
                 if (i == 4)
                 {
@@ -63,8 +65,11 @@ public partial class Home : System.Web.UI.Page
 
             }
             string chiave = dr["chiave"].ToString();
+            string descrizione = dr["descrizione"].ToString().Trim();
+            string titolo = dr["titolo"].ToString().Trim();
+
             lit.InnerHtml += "<div class=col-lg-2>";
-            lit.InnerHtml += "<img runat='server' onclick='imgClick("+chiave+")' alt='" + chiave + "' class='image' src='/AsyncHandler.ashx?c=" + chiave + "' />";
+            lit.InnerHtml += "<img id='" + chiave + "' onclick=\"showPopup(" + chiave + ",'" + titolo + "','" + descrizione + "')\" class='image' src='/AsyncHandler.ashx?c=" + chiave + "' />";
             lit.InnerHtml += "</div>";
             if (i == 4)
             {
@@ -79,15 +84,4 @@ public partial class Home : System.Web.UI.Page
         }
     }
 
-    [WebMethod]
-    public static void setKey(string chiave)
-    {
-        HttpContext.Current.Session["imgKey"] = chiave;
-    }
-
-    protected void pnlModifica_Load(object sender, EventArgs e)
-    {
-        Iframe1.Visible= true;
-        Iframe1.DataBind();
-    }
 }

@@ -215,7 +215,7 @@ public class WSInstaBro : System.Web.Services.WebService
     {
         DATABASE DB = new DATABASE();
         DB.cmd.Parameters.Clear();
-        DB.query = "spUTENTI_CambiaPWD";
+        DB.query = "spUTENTI_Update";
         DB.cmd.Parameters.AddWithValue("@chiave", chiave);
         DB.cmd.Parameters.AddWithValue("@NOME", NOME);
         DB.cmd.Parameters.AddWithValue("@COGNOME", COGNOME);
@@ -228,7 +228,7 @@ public class WSInstaBro : System.Web.Services.WebService
     {
         DATABASE DB = new DATABASE();
         DB.cmd.Parameters.Clear();
-        DB.query = "spUTENTI_CambiaPWD";
+        DB.query = "spUTENTI_UpdateImgProfilo";
         DB.cmd.Parameters.AddWithValue("@chiave", chiave);
         DB.cmd.Parameters.AddWithValue("@IMGPROFILO", imgData);
         DB.cmd.Parameters.AddWithValue("@TIPOIMG", tipo);

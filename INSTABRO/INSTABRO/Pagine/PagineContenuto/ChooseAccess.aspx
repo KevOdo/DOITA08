@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="ChooseAccess.aspx.cs" Inherits="ChooseAccess" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href="/assets/css/style.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <section class="title">
@@ -24,7 +25,7 @@
                                     <asp:Label ID="lblPWD" runat="server" Text="Password:"></asp:Label>
                                     <asp:TextBox ID="txtPWD" runat="server"></asp:TextBox>
                                 </div>
-                                <asp:Button ID="btnLogin" runat="server" Text="LOGIN" OnClick="btnLogin_Click"/>
+                                <asp:Button ID="btnLogin" runat="server" Text="LOGIN" OnClick="btnLogin_Click" />
                             </div>
                         </div>
                     </div>
@@ -38,7 +39,7 @@
                                     <asp:Label ID="lblEmailRegister" runat="server" Text="Email:"></asp:Label>
                                     <asp:TextBox ID="txtEmailRegister" runat="server"></asp:TextBox>
                                 </div>
-                                <asp:Button ID="btnRegister" runat="server" Text="REGISTER" OnClick="btnRegister_Click"/>
+                                <asp:Button ID="btnRegister" runat="server" Text="REGISTER" OnClick="btnRegister_Click" />
                             </div>
                         </div>
                     </div>

@@ -12,4 +12,15 @@ public partial class UserPage : System.Web.UI.Page
     {
 
     }
+
+    protected void btnCarica_Click(object sender, EventArgs e)
+    {
+        UTENTI u = new UTENTI();
+        //creo un array di bytes da riempire con i bytes del file
+        byte[] imgData = flup.FileBytes;
+        // salvo il tipo del file scelto leggendolo da file upload
+        string tipo = flup.PostedFile.ContentType;
+        string chiave = Session["USRchiave"].ToString();
+        u.UpdateImgProfilo(chiave, imgData, tipo);
+    }
 }

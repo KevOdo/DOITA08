@@ -28,7 +28,7 @@ public partial class PhotoUpload : System.Web.UI.Page
         //creo un array di bytes da riempire con i bytes del file
         byte[] imgData = flup.FileBytes;
         // imposto il titolo uguale al nome del file scelto
-        string titolo = flup.PostedFile.FileName;
+        string titolo = txtTitolo.Text.Trim();
         // salvo il tipo del file scelto leggendolo da file upload
         string tipo = flup.PostedFile.ContentType;
 

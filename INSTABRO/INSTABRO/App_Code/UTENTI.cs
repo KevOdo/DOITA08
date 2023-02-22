@@ -35,4 +35,10 @@ public class UTENTI
         DataTable DT = c.USR_SelectByKey(chiave);
         return DT;
     }
+
+    public void UpdateImgProfilo(string chiave, byte[] imgData, string tipo)
+    {
+        SRInstaBro.WSInstaBroSoapClient c = new SRInstaBro.WSInstaBroSoapClient();
+        c.USR_UpdateImgProfilo(chiave, imgData, tipo);
+    }
 }
