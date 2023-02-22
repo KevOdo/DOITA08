@@ -8,16 +8,16 @@ using System.Web;
 /// <summary>
 /// Descrizione di riepilogo per DATABASE
 /// </summary>
-static class DATABASE
+public class DATABASE
 {
 
-    public static SqlConnection conn = new SqlConnection();
-    public static SqlCommand cmd = new SqlCommand();
-    public static SqlDataAdapter DA = new SqlDataAdapter();
-    public static DataTable DT = new DataTable();
-    public static string query;
+    public SqlConnection conn = new SqlConnection();
+    public SqlCommand cmd = new SqlCommand();
+    public SqlDataAdapter DA = new SqlDataAdapter();
+    public DataTable DT = new DataTable();
+    public string query;
 
-    static DATABASE()
+    public DATABASE()
     {
         conn.ConnectionString = @"Data Source=DESKTOP-QNAP4SN\SQLEXPRESS;Initial Catalog=INSTABRO;Integrated Security=true;Pooling=false";
         cmd.Connection = conn;
@@ -25,7 +25,7 @@ static class DATABASE
 
     // Select query 
 
-    public static DataTable ExecuteReadQuery()
+    public DataTable ExecuteReadQuery()
     {
         conn.Close();
         DT.Clear();
@@ -39,7 +39,7 @@ static class DATABASE
 
     // Select Store Procedure
 
-    public static DataTable ExecuteReadStoredP()
+    public DataTable ExecuteReadStoredP()
     {
         conn.Close();
         DT.Clear();
@@ -52,7 +52,7 @@ static class DATABASE
     }
 
     // Insert into, update or delete query
-    public static void ExecuteNotReadQuery()
+    public void ExecuteNotReadQuery()
     {
         conn.Close();
         DT.Clear();
@@ -64,7 +64,7 @@ static class DATABASE
     }
 
     // Insert into, update or delete Store Procedure
-    public static void ExecuteNotReadStoredP()
+    public void ExecuteNotReadStoredP()
     {
         DT.Clear();
         // dico al cmd che deve eseguire la query, specificando che si tratta di una store procedure.
@@ -77,7 +77,7 @@ static class DATABASE
         conn.Close();
     }
 
-    public static void StaticNonReadSP(string query, string[,] parameters)
+    public void StaticNonReadSP(string query, string[,] parameters)
     {
         DT.Clear();
         cmd.CommandText = query;

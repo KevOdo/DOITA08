@@ -2,13 +2,13 @@
 <wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="IMGLast50">
+      <s:element name="IMG_Last50">
         <s:complexType />
       </s:element>
-      <s:element name="IMGLast50Response">
+      <s:element name="IMG_Last50Response">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="IMGLast50Result">
+            <s:element minOccurs="0" maxOccurs="1" name="IMG_Last50Result">
               <s:complexType>
                 <s:sequence>
                   <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
@@ -19,24 +19,595 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="IMG_UploadImg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiaveAlbum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imgData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="titolo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descrizione" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMG_UploadImgResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IMG_SelectByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMG_SelectByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IMG_SelectByKeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMG_SelectByAlbum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiaveALBUM" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMG_SelectByAlbumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IMG_SelectByAlbumResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMG_SelectAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="IMG_SelectAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IMG_SelectAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterSearchBar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchTerm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilterSearchBarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FilterSearchBarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ALB_Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiaveUTENTE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="titolo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ALB_InsertResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ALB_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="chiaveUTENTE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="titolo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ALB_UpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ALB_SelectByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ALB_SelectByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ALB_SelectByKeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ALB_SelectByUtente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiaveUTENTE" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ALB_SelectByUtenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ALB_SelectByUtenteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ALB_SelectAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="ALB_SelectAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ALB_SelectAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USR_Registra">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USR_RegistraResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="USR_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USR_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USR_LoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USR_SelectByKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USR_SelectByKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="USR_SelectByKeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USR_CambiaPWD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PWD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USR_CambiaPWDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="USR_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NOME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="COGNOME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USR_UpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="USR_UpdateImgProfilo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="chiave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imgData" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="USR_UpdateImgProfiloResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="IMGLast50SoapIn">
-    <wsdl:part name="parameters" element="tns:IMGLast50" />
+  <wsdl:message name="IMG_Last50SoapIn">
+    <wsdl:part name="parameters" element="tns:IMG_Last50" />
   </wsdl:message>
-  <wsdl:message name="IMGLast50SoapOut">
-    <wsdl:part name="parameters" element="tns:IMGLast50Response" />
+  <wsdl:message name="IMG_Last50SoapOut">
+    <wsdl:part name="parameters" element="tns:IMG_Last50Response" />
+  </wsdl:message>
+  <wsdl:message name="IMG_UploadImgSoapIn">
+    <wsdl:part name="parameters" element="tns:IMG_UploadImg" />
+  </wsdl:message>
+  <wsdl:message name="IMG_UploadImgSoapOut">
+    <wsdl:part name="parameters" element="tns:IMG_UploadImgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMG_SelectByKeySoapIn">
+    <wsdl:part name="parameters" element="tns:IMG_SelectByKey" />
+  </wsdl:message>
+  <wsdl:message name="IMG_SelectByKeySoapOut">
+    <wsdl:part name="parameters" element="tns:IMG_SelectByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMG_SelectByAlbumSoapIn">
+    <wsdl:part name="parameters" element="tns:IMG_SelectByAlbum" />
+  </wsdl:message>
+  <wsdl:message name="IMG_SelectByAlbumSoapOut">
+    <wsdl:part name="parameters" element="tns:IMG_SelectByAlbumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMG_SelectAllSoapIn">
+    <wsdl:part name="parameters" element="tns:IMG_SelectAll" />
+  </wsdl:message>
+  <wsdl:message name="IMG_SelectAllSoapOut">
+    <wsdl:part name="parameters" element="tns:IMG_SelectAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilterSearchBarSoapIn">
+    <wsdl:part name="parameters" element="tns:FilterSearchBar" />
+  </wsdl:message>
+  <wsdl:message name="FilterSearchBarSoapOut">
+    <wsdl:part name="parameters" element="tns:FilterSearchBarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ALB_InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:ALB_Insert" />
+  </wsdl:message>
+  <wsdl:message name="ALB_InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:ALB_InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="ALB_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:ALB_Update" />
+  </wsdl:message>
+  <wsdl:message name="ALB_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:ALB_UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ALB_SelectByKeySoapIn">
+    <wsdl:part name="parameters" element="tns:ALB_SelectByKey" />
+  </wsdl:message>
+  <wsdl:message name="ALB_SelectByKeySoapOut">
+    <wsdl:part name="parameters" element="tns:ALB_SelectByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ALB_SelectByUtenteSoapIn">
+    <wsdl:part name="parameters" element="tns:ALB_SelectByUtente" />
+  </wsdl:message>
+  <wsdl:message name="ALB_SelectByUtenteSoapOut">
+    <wsdl:part name="parameters" element="tns:ALB_SelectByUtenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ALB_SelectAllSoapIn">
+    <wsdl:part name="parameters" element="tns:ALB_SelectAll" />
+  </wsdl:message>
+  <wsdl:message name="ALB_SelectAllSoapOut">
+    <wsdl:part name="parameters" element="tns:ALB_SelectAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="USR_RegistraSoapIn">
+    <wsdl:part name="parameters" element="tns:USR_Registra" />
+  </wsdl:message>
+  <wsdl:message name="USR_RegistraSoapOut">
+    <wsdl:part name="parameters" element="tns:USR_RegistraResponse" />
+  </wsdl:message>
+  <wsdl:message name="USR_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:USR_Login" />
+  </wsdl:message>
+  <wsdl:message name="USR_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:USR_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="USR_SelectByKeySoapIn">
+    <wsdl:part name="parameters" element="tns:USR_SelectByKey" />
+  </wsdl:message>
+  <wsdl:message name="USR_SelectByKeySoapOut">
+    <wsdl:part name="parameters" element="tns:USR_SelectByKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="USR_CambiaPWDSoapIn">
+    <wsdl:part name="parameters" element="tns:USR_CambiaPWD" />
+  </wsdl:message>
+  <wsdl:message name="USR_CambiaPWDSoapOut">
+    <wsdl:part name="parameters" element="tns:USR_CambiaPWDResponse" />
+  </wsdl:message>
+  <wsdl:message name="USR_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:USR_Update" />
+  </wsdl:message>
+  <wsdl:message name="USR_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:USR_UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="USR_UpdateImgProfiloSoapIn">
+    <wsdl:part name="parameters" element="tns:USR_UpdateImgProfilo" />
+  </wsdl:message>
+  <wsdl:message name="USR_UpdateImgProfiloSoapOut">
+    <wsdl:part name="parameters" element="tns:USR_UpdateImgProfiloResponse" />
   </wsdl:message>
   <wsdl:portType name="WSInstaBroSoap">
-    <wsdl:operation name="IMGLast50">
-      <wsdl:input message="tns:IMGLast50SoapIn" />
-      <wsdl:output message="tns:IMGLast50SoapOut" />
+    <wsdl:operation name="IMG_Last50">
+      <wsdl:input message="tns:IMG_Last50SoapIn" />
+      <wsdl:output message="tns:IMG_Last50SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMG_UploadImg">
+      <wsdl:input message="tns:IMG_UploadImgSoapIn" />
+      <wsdl:output message="tns:IMG_UploadImgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMG_SelectByKey">
+      <wsdl:input message="tns:IMG_SelectByKeySoapIn" />
+      <wsdl:output message="tns:IMG_SelectByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMG_SelectByAlbum">
+      <wsdl:input message="tns:IMG_SelectByAlbumSoapIn" />
+      <wsdl:output message="tns:IMG_SelectByAlbumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMG_SelectAll">
+      <wsdl:input message="tns:IMG_SelectAllSoapIn" />
+      <wsdl:output message="tns:IMG_SelectAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilterSearchBar">
+      <wsdl:input message="tns:FilterSearchBarSoapIn" />
+      <wsdl:output message="tns:FilterSearchBarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ALB_Insert">
+      <wsdl:input message="tns:ALB_InsertSoapIn" />
+      <wsdl:output message="tns:ALB_InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ALB_Update">
+      <wsdl:input message="tns:ALB_UpdateSoapIn" />
+      <wsdl:output message="tns:ALB_UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ALB_SelectByKey">
+      <wsdl:input message="tns:ALB_SelectByKeySoapIn" />
+      <wsdl:output message="tns:ALB_SelectByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ALB_SelectByUtente">
+      <wsdl:input message="tns:ALB_SelectByUtenteSoapIn" />
+      <wsdl:output message="tns:ALB_SelectByUtenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ALB_SelectAll">
+      <wsdl:input message="tns:ALB_SelectAllSoapIn" />
+      <wsdl:output message="tns:ALB_SelectAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USR_Registra">
+      <wsdl:input message="tns:USR_RegistraSoapIn" />
+      <wsdl:output message="tns:USR_RegistraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USR_Login">
+      <wsdl:input message="tns:USR_LoginSoapIn" />
+      <wsdl:output message="tns:USR_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USR_SelectByKey">
+      <wsdl:input message="tns:USR_SelectByKeySoapIn" />
+      <wsdl:output message="tns:USR_SelectByKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USR_CambiaPWD">
+      <wsdl:input message="tns:USR_CambiaPWDSoapIn" />
+      <wsdl:output message="tns:USR_CambiaPWDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USR_Update">
+      <wsdl:input message="tns:USR_UpdateSoapIn" />
+      <wsdl:output message="tns:USR_UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="USR_UpdateImgProfilo">
+      <wsdl:input message="tns:USR_UpdateImgProfiloSoapIn" />
+      <wsdl:output message="tns:USR_UpdateImgProfiloSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSInstaBroSoap" type="tns:WSInstaBroSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="IMGLast50">
-      <soap:operation soapAction="http://tempuri.org/IMGLast50" style="document" />
+    <wsdl:operation name="IMG_Last50">
+      <soap:operation soapAction="http://tempuri.org/IMG_Last50" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMG_UploadImg">
+      <soap:operation soapAction="http://tempuri.org/IMG_UploadImg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMG_SelectByKey">
+      <soap:operation soapAction="http://tempuri.org/IMG_SelectByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMG_SelectByAlbum">
+      <soap:operation soapAction="http://tempuri.org/IMG_SelectByAlbum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMG_SelectAll">
+      <soap:operation soapAction="http://tempuri.org/IMG_SelectAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterSearchBar">
+      <soap:operation soapAction="http://tempuri.org/FilterSearchBar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_Insert">
+      <soap:operation soapAction="http://tempuri.org/ALB_Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_Update">
+      <soap:operation soapAction="http://tempuri.org/ALB_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_SelectByKey">
+      <soap:operation soapAction="http://tempuri.org/ALB_SelectByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_SelectByUtente">
+      <soap:operation soapAction="http://tempuri.org/ALB_SelectByUtente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_SelectAll">
+      <soap:operation soapAction="http://tempuri.org/ALB_SelectAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_Registra">
+      <soap:operation soapAction="http://tempuri.org/USR_Registra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_Login">
+      <soap:operation soapAction="http://tempuri.org/USR_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_SelectByKey">
+      <soap:operation soapAction="http://tempuri.org/USR_SelectByKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_CambiaPWD">
+      <soap:operation soapAction="http://tempuri.org/USR_CambiaPWD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_Update">
+      <soap:operation soapAction="http://tempuri.org/USR_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_UpdateImgProfilo">
+      <soap:operation soapAction="http://tempuri.org/USR_UpdateImgProfilo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -47,8 +618,152 @@
   </wsdl:binding>
   <wsdl:binding name="WSInstaBroSoap12" type="tns:WSInstaBroSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="IMGLast50">
-      <soap12:operation soapAction="http://tempuri.org/IMGLast50" style="document" />
+    <wsdl:operation name="IMG_Last50">
+      <soap12:operation soapAction="http://tempuri.org/IMG_Last50" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMG_UploadImg">
+      <soap12:operation soapAction="http://tempuri.org/IMG_UploadImg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMG_SelectByKey">
+      <soap12:operation soapAction="http://tempuri.org/IMG_SelectByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMG_SelectByAlbum">
+      <soap12:operation soapAction="http://tempuri.org/IMG_SelectByAlbum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMG_SelectAll">
+      <soap12:operation soapAction="http://tempuri.org/IMG_SelectAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilterSearchBar">
+      <soap12:operation soapAction="http://tempuri.org/FilterSearchBar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_Insert">
+      <soap12:operation soapAction="http://tempuri.org/ALB_Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_Update">
+      <soap12:operation soapAction="http://tempuri.org/ALB_Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_SelectByKey">
+      <soap12:operation soapAction="http://tempuri.org/ALB_SelectByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_SelectByUtente">
+      <soap12:operation soapAction="http://tempuri.org/ALB_SelectByUtente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ALB_SelectAll">
+      <soap12:operation soapAction="http://tempuri.org/ALB_SelectAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_Registra">
+      <soap12:operation soapAction="http://tempuri.org/USR_Registra" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_Login">
+      <soap12:operation soapAction="http://tempuri.org/USR_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_SelectByKey">
+      <soap12:operation soapAction="http://tempuri.org/USR_SelectByKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_CambiaPWD">
+      <soap12:operation soapAction="http://tempuri.org/USR_CambiaPWD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_Update">
+      <soap12:operation soapAction="http://tempuri.org/USR_Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="USR_UpdateImgProfilo">
+      <soap12:operation soapAction="http://tempuri.org/USR_UpdateImgProfilo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

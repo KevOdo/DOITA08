@@ -1,8 +1,13 @@
 ﻿body {
     height: 100vh;
-    background-color: #969696;
     display: flex;
+    background-color: #70d4ff;
 }
+
+a {
+    color: white;
+}
+
 
 .sidebar {
     width: 13vw;
@@ -19,4 +24,43 @@
 .pageContent {
     flex-grow: 1;
     margin-top: 25px;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+}
+
+.menu-elem {
+    text-align: center;
+    color: white;
+}
+
+.menu-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.Background {
+    background-color: Black;
+    filter: alpha(opacity=30);
+    opacity: 0.8;
+}
+
+.Popup {
+    background-color: #FFFFFF;
+    border-width: 3px;
+    border-style: solid;
+    border-color: black;
+}
+
+.PopupImage {
+    width: 800px;
+    height: 500px;
+}
+
+.images {
+    overflow-y: scroll;
+    max-height: 540px;
+    overflow-x: hidden;
 }
