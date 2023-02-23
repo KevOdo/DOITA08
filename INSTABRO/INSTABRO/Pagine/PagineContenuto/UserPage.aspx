@@ -12,6 +12,9 @@
                     <div class="row py-4">
                         <div class="col-lg-6">
                             <div class="card">
+                                <div class="card-header">
+                                    Carica Foto Profilo
+                                </div>
                                 <div class="card-body">
                                     <asp:FileUpload ID="flup" runat="server" />
                                     <asp:Button ID="btnCarica" runat="server" Text="Carica Immagine" OnClick="btnCarica_Click"/>

@@ -30,7 +30,13 @@ public partial class ChooseAccess : System.Web.UI.Page
         {
             Session["USRchiave"] = DT.Rows[0]["chiave"];
             Session["TIPOIMG"] = DT.Rows[0]["TIPOIMG"];
-            Response.Redirect("/Pagine/PagineContenuto/Home.aspx");
+            if (DT.Rows[0]["PRIMOACCESSO"].ToString() == "True")
+            {
+                Response.Redirect("/Pagine/PagineContenuto/UserPage.aspx");
+            } else
+            {
+                Response.Redirect("/Pagine/PagineContenuto/Home.aspx");
+            }
         }
     }
 
@@ -60,7 +66,6 @@ public partial class ChooseAccess : System.Web.UI.Page
         string body = "Registrazione a InstaBro effettuata con successo. Per accedere e' stata generata una password random: " + temporaryPWD;
         EMAIL em = new EMAIL();
         em.SendEmail(email, subject, body);
-
 
     }
 }

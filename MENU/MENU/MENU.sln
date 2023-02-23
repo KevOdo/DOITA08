@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MENU", ".", "{D3D80435-1A50-4220-ADC6-C1F90C22AF51}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50799"
+		Debug.AspNetCompiler.PhysicalPath = "..\MENU\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50799\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50799"
+		Release.AspNetCompiler.PhysicalPath = "..\MENU\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50799\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50799"
+		SlnRelativePath = "..\MENU\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3D80435-1A50-4220-ADC6-C1F90C22AF51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3D80435-1A50-4220-ADC6-C1F90C22AF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65567309-A85D-4EA5-8402-23E9B3DE5DC5}
+	EndGlobalSection
+EndGlobal

@@ -24,7 +24,7 @@ public partial class Main : System.Web.UI.MasterPage
 
             if (Session["TIPOIMG"] != null && !String.IsNullOrEmpty(Session["TIPOIMG"].ToString()))
             {
-                usrIcon.InnerHtml = "<img class='menu-icon' src='/Handler.ashx?c=" + Session["USRchiave"].ToString() + "' />";
+                usrIcon.InnerHtml = "<img class='imgProfilo' src='/Handler.ashx?c=" + Session["USRchiave"].ToString() + "' />";
             }
 
         }

@@ -41,9 +41,14 @@ a {
     height: 40px;
 }
 
+.imgProfilo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
 .Background {
     background-color: Black;
-    filter: alpha(opacity=30);
     opacity: 0.8;
 }
 
@@ -83,7 +88,7 @@ a {
     width: 80%;
     max-width: 700px;
     text-align: center;
-    color: #ccc;
+    color: #ffffff;
     padding: 10px 0;
     height: 150px;
 }
@@ -128,4 +133,13 @@ a {
 
 .sbtn {
     z-index: 0;
+}
+
+.imgProfilo {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.album {
+    max-width: 200px;
 }

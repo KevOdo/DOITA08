@@ -27,4 +27,10 @@ public class ALBUM
         DataTable DT = c.ALB_SelectByUtente(chiaveUTENTE);
         return DT;
     }
+
+    public void Insert(string chiaveUTENTE, string titolo)
+    {
+        SRInstaBro.WSInstaBroSoapClient c = new SRInstaBro.WSInstaBroSoapClient();
+        c.ALB_Insert(chiaveUTENTE, titolo);
+    }
 }

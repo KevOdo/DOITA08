@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AJAXTEST", ".", "{4D6E7051-BBFE-4C6B-8135-4F3CEAD7993F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50175"
+		Debug.AspNetCompiler.PhysicalPath = "..\AJAXTEST\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50175\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50175"
+		Release.AspNetCompiler.PhysicalPath = "..\AJAXTEST\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50175\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50175"
+		SlnRelativePath = "..\AJAXTEST\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D6E7051-BBFE-4C6B-8135-4F3CEAD7993F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D6E7051-BBFE-4C6B-8135-4F3CEAD7993F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21605B12-DE37-49B5-9E50-F841EDE62669}
+	EndGlobalSection
+EndGlobal
